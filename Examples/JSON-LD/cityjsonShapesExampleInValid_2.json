@@ -1,0 +1,137 @@
+[
+  {
+    "@context": {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
+      "sh": "http://www.w3.org/ns/shacl#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "ex": "http://example.com/"
+    },
+    "@id": "http://example.com/Cityjson",
+    "@type": "cj:Cityjson",
+    "cj:type": "CityJSON",
+    "cj:version": "1.0",
+    "cj:hasTransform": {
+      "@id": "http://example.com/Transform",
+      "@type": "cj:Transform",
+      "cj:hasScale": {
+        "@id": "http://example.com/Scale",
+        "@type": "cj:Scale",
+        "cj:scaleX": {
+          "@value": "1.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:scaleY": {
+          "@value": "1.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:scaleZ": {
+          "@value": "1.0",
+          "@type": "xsd:decimal"
+        }
+      },
+      "cj:hasTranslate": {
+        "@id": "http://example.com/Translate",
+        "@type": "cj:Translate",
+        "cj:translateX": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:translateY": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:translateZ": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+    "cj:hasCityObjects": {
+      "@id": "ex:Building-1",
+      "@type": "cj:FirstLevelCityObject",
+      "cj:type": ""
+    },
+    "cj:hasVertices": {
+      "@id": "http://example.com/VerticesList",
+      "@type": "cj:Vertices",
+      "@list": [
+        {
+          "@id": "http://example.com/Vertex1",
+          "@type": "cj:Vertex",
+          "cj:vertexX": 0,
+          "cj:vertexY": 0,
+          "cj:vertexZ": 0
+        },
+        {
+          "@id": "http://example.com/Vertex2",
+          "@type": "cj:Vertex",
+          "cj:vertexX": 0,
+          "cj:vertexY": 0,
+          "cj:vertexZ": 0
+        },
+        {
+          "@id": "http://example.com/Vertex3",
+          "@type": "cj:Vertex",
+          "cj:vertexX": 0,
+          "cj:vertexY": 0,
+          "cj:vertexZ": 0
+        },
+        {
+          "@id": "http://example.com/Vertex4",
+          "@type": "cj:Vertex",
+          "cj:vertexX": 0,
+          "cj:vertexY": 0,
+          "cj:vertexZ": 0
+        },
+        1
+      ]
+    },
+    "cj:hasMetadata": {
+      "@id": "http://example.com/Metadata",
+      "@type": "cj:Metadata",
+      "cj:hasGeographicalExtent": {
+        "@id": "http://example.com/GeographicalExtent",
+        "@type": "cj:GeographicalExtent",
+        "cj:minX": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:maxX": {
+          "@value": "10.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:minY": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:maxY": {
+          "@value": "10.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:minZ": {
+          "@value": "0.0",
+          "@type": "xsd:decimal"
+        },
+        "cj:maxZ": {
+          "@value": "10.0",
+          "@type": "xsd:decimal"
+        }
+      },
+      "cj:identifier": "123",
+      "cj:hasPointOfContact": {
+        "@id": "http://example.com/PointOfContact",
+        "@type": "cj:PointOfContact",
+        "cj:contactName": "John Doe",
+        "cj:emailAddress": "john@example.com",
+        "cj:role": "owner",
+        "cj:website": "http://example.com",
+        "cj:contactType": "individual"
+      },
+      "cj:referenceDate": "2024-01-01",
+      "cj:referenceSystem": "WGS84",
+      "cj:title": "Example City"
+    }
+  }
+]

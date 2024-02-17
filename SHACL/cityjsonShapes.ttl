@@ -1,0 +1,510 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+#    Cityjson Shape
+#################################################################
+
+cj:CityjsonShape
+    a sh:NodeShape ;
+    sh:targetClass cj:Cityjson;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:type ;
+        sh:datatype xsd:string ;
+        sh:in ("CityJSON") ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Only one type should exist and the value must be \"CityJSON\"" ;
+    ] ;
+    sh:property [
+        sh:path cj:version ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:pattern "^\\d\\.\\d$" ;
+        sh:message "Only one Version should exist and it must be in the format X.Y." ;
+    ] ;
+    sh:property [
+        sh:path cj:hasTransform ;
+        sh:node cj:TransformShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasCityObjects ;
+        sh:or (
+            [ sh:node cj:FirstLevelCityObjectShape ; ]
+            [ sh:node cj:SecondLevelCityObjectShape ; ]
+        ) ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasVertices ;
+        sh:node cj:VerticesShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasMetadata ;
+        sh:node cj:MetadataShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] . 
+
+#################################################################
+#    Transform Shape
+#################################################################
+
+cj:TransformShape
+    a sh:NodeShape ;
+    sh:targetClass cj:Transform;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:hasScale ;
+        sh:node cj:ScaleShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasTranslate ;
+        sh:node cj:TranslateShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    Scale Shape
+#################################################################
+
+cj:ScaleShape
+    a sh:NodeShape ;
+    sh:targetClass cj:Scale;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:scaleX ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:scaleY ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:scaleZ ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    Translate Shape
+#################################################################
+
+cj:TranslateShape
+    a sh:NodeShape ;
+    sh:targetClass cj:Translate;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:translateX ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:translateY ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:translateZ ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    Vertices Shape
+#################################################################
+
+cj:VerticesShape 
+  a sh:NodeShape ;
+    sh:targetClass cj:Vertices ; 
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [ 
+        sh:path rdf:first ;
+        sh:node cj:VertexShape ;
+    ],
+    [
+        sh:path rdf:rest ;
+        sh:or ([sh:node cj:VerticesShape ;] 
+               [ sh:datatype xsd:nil ;] ) ;
+    ] .
+
+#################################################################
+#    Vertex Shape
+#################################################################
+
+cj:VertexShape
+  a sh:NodeShape ;
+  sh:targetClass cj:Vertex ;
+  sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+  sh:property [
+        sh:path cj:vertexX ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:vertexY ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:vertexZ ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    Metadata Shape
+#################################################################
+
+cj:MetadataShape
+  a sh:NodeShape ;
+  sh:targetClass cj:Metadata ;
+  sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+  sh:property [
+        sh:path cj:hasGeographicalExtent ;
+        sh:node cj:GeographicalExtentShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:identifier ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+
+  sh:property [
+        sh:path cj:hasPointOfContact ;
+        sh:node cj:PointOfContactShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;    
+  sh:property [
+        sh:path cj:referenceDate ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:referenceSystem ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:title ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    GeographicalExtent Shape
+#################################################################
+
+cj:GeographicalExtentShape
+  a sh:NodeShape ;
+  sh:targetClass cj:GeographicalExtent ;
+  sh:closed true ;
+  sh:property [
+        sh:path rdf:type ;
+    ] ;
+  sh:property [
+        sh:path cj:minX ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+  sh:property [
+        sh:path cj:maxX ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:minY ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:maxY ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:minZ ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:maxZ ;
+        sh:datatype xsd:decimal ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    PointOfContact Shape
+#################################################################
+
+cj:PointOfContactShape
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:targetClass cj:PointOfContact ;
+    sh:property [
+        sh:path cj:contactName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:emailAddress ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:role ;
+        sh:datatype xsd:string ;
+        sh:in (
+                "resourceProvider"
+                "custodian"
+                "owner"
+                "user"
+                "distributor"
+                "originator"
+                "pointOfContact"
+                "principalInvestigator"
+                "processor"
+                "publisher"
+                "author"
+                "sponsor"
+                "co-author"
+                "collaborator"
+                "editor"
+                "mediator"
+                "rightsHolder"
+                "contributor"
+                "funder"
+                "stakeholder"
+            ) ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:website ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:contactType ;
+        sh:datatype xsd:string ;
+        sh:in (
+                "individual"
+                "organization"
+            ) ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+            sh:path cj:hasAddress ;
+            sh:minCount 0 ;
+            sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:phone ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:organization ;
+        sh:datatype xsd:string ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    FirstSecondLevelCityObject Shape
+#################################################################
+
+cj:FirstLevelCityObjectShape
+    a sh:NodeShape ;
+    sh:targetClass cj:FirstLevelCityObject ;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+     sh:property [
+        sh:path cj:type ;
+        sh:in (
+                "Bridge"
+                "Building"
+                "CityFurniture"
+                "CityObjectGroup"
+                "GenericCityObject"
+                "LandUse"
+                "Metadata"
+                "OtherConstruction"
+                "PlantCover"
+                "Railway"
+                "Road"
+                "SolitaryVegetationObject"
+                "TINRelief"
+                "TransportationSquare"
+                "Tunnel"
+                "Waterbody"
+                "Waterway"
+            ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasAttribute ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:hasGeographicalExtent ;
+        sh:node cj:GeographicalExtent ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:hasChildren ;
+        sh:node cj:ChildrenShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+#################################################################
+#    Children Shape
+#################################################################
+
+cj:ChildrenShape 
+  a sh:NodeShape ;
+    sh:targetClass rdf:List ; 
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [ 
+        sh:path rdf:first ;
+        sh:datatype xsd:string ; 
+    ],
+    [
+        sh:path rdf:rest ;
+        sh:or ([sh:node cj:ChildrenShape ;] 
+               [ sh:datatype xsd:nil ;] ) ;
+    ] .
+
+#################################################################
+#    SecondLevelCityObject Shape
+#################################################################
+
+cj:SecondLevelCityObjectShape
+    a sh:NodeShape ;
+    sh:targetClass cj:SecondLevelCityObject ;
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:type ;
+        sh:in (
+                "BridgeConstructiveElement"
+                "BridgeFurniture"
+                "BridgePart"
+                "BridgeRoom"
+                "BridgeInstallation"
+                "BuildingConstructiveElement"
+                "BuildingFurniture"
+                "BuildingInstallation"
+                "BuildingPart"
+                "BuildingRoom"
+                "BuildingStorey"
+                "BuildingUnit"
+                "TunnelConstructiveElement"
+                "TunnelFurniture"
+                "TunnelHollowSpace"
+                "TunnelInstallation"
+                "TunnelPart"
+            ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasAttribute ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:hasGeographicalExtent ;
+        sh:node cj:GeographicalExtent ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ; 
+    sh:property [
+        sh:path cj:hasChildren ;
+        sh:node cj:ChildrenShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ];
+    sh:property [
+        sh:path cj:parentID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+

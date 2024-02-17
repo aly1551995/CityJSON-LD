@@ -1,0 +1,68 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.com/> .
+
+ex:Cityjson a cj:Cityjson ;
+    cj:type "CityJSON" ;
+    cj:version "1.0" ;
+    cj:hasTransform ex:Transform ;
+    cj:hasCityObjects ex:CityObject ;
+    cj:hasVertices ex:Vertices ;
+    cj:hasMetadata ex:Metadata .
+
+ex:Transform a cj:Transform ;
+    cj:hasScale ex:Scale ;
+    cj:hasTranslate ex:Translate .
+
+ex:Scale a cj:Scale ;
+    cj:scaleX 1.0 ;
+    cj:scaleY 1.0 ;
+    cj:scaleZ 1.0 .
+
+ex:Translate a cj:Translate ;
+    cj:translateX 0.0 ;
+    cj:translateY 0.0 ;
+    cj:translateZ 0.0 .
+
+ex:CityObject a cj:FirstLevelCityObject ;
+    cj:type "Bridge" .
+
+ex:Vertices a cj:Vertices ;
+rdf:first ex:Vertex1 ;
+    rdf:rest [ rdf:first ex:Vertex2 ; rdf:rest rdf:nil ] .
+
+ex:Vertex1 a cj:Vertex ;
+    cj:vertexX 0 ;
+    cj:vertexY 0 ;
+    cj:vertexZ 0 .
+
+ex:Vertex2 a cj:Vertex ;
+    cj:vertexX 0 ;
+    cj:vertexY 0 ;
+    cj:vertexZ 0 .
+
+ex:Metadata a cj:Metadata ;
+    cj:hasGeographicalExtent ex:GeographicalExtent ;
+    cj:identifier "123" ;
+    cj:hasPointOfContact ex:PointOfContact ;
+    cj:referenceDate "2024-01-01" ;
+    cj:referenceSystem "WGS84" ;
+    cj:title "Example City" .
+
+ex:GeographicalExtent a cj:GeographicalExtent ;
+    cj:minX 0.0 ;
+    cj:maxX 10.0 ;
+    cj:minY 0.0 ;
+    cj:maxY 10.0 ;
+    cj:minZ 0.0 ;
+    cj:maxZ 10.0 .
+
+ex:PointOfContact a cj:PointOfContact ;
+    cj:contactName "John Doe" ;
+    cj:emailAddress "john@example.com" ;
+    cj:role "owner" ;
+    cj:website "http://example.com" ;
+    cj:contactType "individual" .

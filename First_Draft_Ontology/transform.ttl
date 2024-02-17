@@ -1,0 +1,124 @@
+@prefix : <https://www.cityjson.org/ont/transform/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.cityjson.org/ont/transform/> .
+
+<https://www.cityjson.org/ont/transform> rdf:type owl:Ontology ;
+                                          rdfs:comment "An ontology for cityjson's transform object"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/hasScale
+:hasScale rdf:type owl:ObjectProperty ;
+          rdfs:domain :transform ;
+          rdfs:range :scale .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/hasTranslate
+:hasTranslate rdf:type owl:ObjectProperty ;
+              rdfs:domain :transform ;
+              rdfs:range :translate .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/scaleX
+:scaleX rdf:type owl:DatatypeProperty ;
+        rdfs:domain :scale ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/scaleY
+:scaleY rdf:type owl:DatatypeProperty ;
+        rdfs:domain :scale ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/scaleZ
+:scaleZ rdf:type owl:DatatypeProperty ;
+        rdfs:domain :scale ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/translateX
+:translateX rdf:type owl:DatatypeProperty ;
+            rdfs:domain :translate ;
+            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/translateY
+:translateY rdf:type owl:DatatypeProperty ;
+            rdfs:domain :translate ;
+            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/translateZ
+:translateZ rdf:type owl:DatatypeProperty ;
+            rdfs:domain :translate ;
+            rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/scale
+:scale rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :scaleX ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:double
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :scaleY ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:double
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :scaleZ ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:double
+                       ] .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/transform
+:transform rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasScale ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :scale
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasTranslate ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :translate
+                           ] .
+
+
+###  http://www.semanticweb.org/aly_m/ontologies/2023/10/untitled-ontology-17/translate
+:translate rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :translateX ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :translateY ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :translateZ ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:double
+                           ] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

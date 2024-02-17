@@ -1,0 +1,715 @@
+@prefix : <https://www.cityjson.org/ont/cityjson.ttl#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.cityjson.org/ont/cityjson.ttl#> .
+
+<https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasAddress
+:hasAddress rdf:type owl:ObjectProperty ;
+            rdfs:domain :PointOfContact .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasAttribute
+:hasAttribute rdf:type owl:ObjectProperty ;
+              rdfs:domain :Cityobject .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasChildren
+:hasChildren rdf:type owl:ObjectProperty ;
+             rdfs:range :Children .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasCityObjects
+:hasCityObjects rdf:type owl:ObjectProperty ;
+                rdfs:domain :Cityjson ;
+                rdfs:range :Cityobject .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasGeographicalExtent
+:hasGeographicalExtent rdf:type owl:ObjectProperty ;
+                       rdfs:range :GeographicalExtent .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasGeometry
+:hasGeometry rdf:type owl:ObjectProperty ;
+             rdfs:domain :Cityobject ;
+             rdfs:range geo:Geometry .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasMetadata
+:hasMetadata rdf:type owl:ObjectProperty ;
+             rdfs:domain :Cityjson ;
+             rdfs:range :Metadata .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasPointOfContact
+:hasPointOfContact rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Metadata ;
+                   rdfs:range :PointOfContact .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasScale
+:hasScale rdf:type owl:ObjectProperty ;
+          rdfs:domain :Transform ;
+          rdfs:range :Scale .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasSemantic
+:hasSemantic rdf:type owl:ObjectProperty ;
+             rdfs:domain geo:Geometry ;
+             rdfs:range :Semantic .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasTransform
+:hasTransform rdf:type owl:ObjectProperty ;
+              rdfs:domain :Cityjson ;
+              rdfs:range :Transform .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasTranslate
+:hasTranslate rdf:type owl:ObjectProperty ;
+              rdfs:domain :Transform ;
+              rdfs:range :Translate .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasVertex
+:hasVertex rdf:type owl:ObjectProperty ;
+           rdfs:domain :Vertices ;
+           rdfs:range :Vertex .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasVertices
+:hasVertices rdf:type owl:ObjectProperty ;
+             rdfs:domain :Cityjson ;
+             rdfs:range :Vertices .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://www.cityjson.org/ont/cityjson.ttl#contactName
+:contactName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PointOfContact ;
+             rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#contactType
+:contactType rdf:type owl:DatatypeProperty ;
+             rdfs:domain :PointOfContact .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#emailAddress
+:emailAddress rdf:type owl:DatatypeProperty ;
+              rdfs:domain :PointOfContact ;
+              rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#identifier
+:identifier rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Metadata ;
+            rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#lod
+:lod rdf:type owl:DatatypeProperty ;
+     rdfs:domain geo:Geometry ;
+     rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#maxX
+:maxX rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#maxY
+:maxY rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#maxZ
+:maxZ rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#minX
+:minX rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#minY
+:minY rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#minZ
+:minZ rdf:type owl:DatatypeProperty ;
+      rdfs:domain :GeographicalExtent ;
+      rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#organization
+:organization rdf:type owl:DatatypeProperty ;
+              rdfs:domain :PointOfContact ;
+              rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#parentID
+:parentID rdf:type owl:DatatypeProperty ;
+          rdfs:domain :SecondLevelCityObject ;
+          rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#phone
+:phone rdf:type owl:DatatypeProperty ;
+       rdfs:domain :PointOfContact ;
+       rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#referenceDate
+:referenceDate rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Metadata ;
+               rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#referenceSystem
+:referenceSystem rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Metadata ;
+                 rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#role
+:role rdf:type owl:DatatypeProperty ;
+      rdfs:domain :PointOfContact .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#scaleX
+:scaleX rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Scale ;
+        rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#scaleY
+:scaleY rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Scale ;
+        rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#scaleZ
+:scaleZ rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Scale ;
+        rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#semanticOtherMembers
+:semanticOtherMembers rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Semantic .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Metadata ;
+       rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#translateX
+:translateX rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Translate ;
+            rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#translateY
+:translateY rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Translate ;
+            rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#translateZ
+:translateZ rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Translate ;
+            rdfs:range xsd:decimal .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#version
+:version rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Cityjson ;
+         rdfs:range xsd:string .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#vertexX
+:vertexX rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Vertex ;
+         rdfs:range xsd:integer .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#vertexY
+:vertexY rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Vertex ;
+         rdfs:range xsd:integer .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#vertexZ
+:vertexZ rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Vertex ;
+         rdfs:range xsd:integer .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#website
+:website rdf:type owl:DatatypeProperty ;
+         rdfs:domain :PointOfContact ;
+         rdfs:range xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geo:Geometry rdf:type owl:Class ;
+             rdfs:comment "CityJSON defines 3D geometric primitives, all of which are embedded in 3D space (and therefore their vertices have (x, y, z) coordinates). Similarly to the indexing mechanism of the format Wavefront OBJ, the geometry object does not store the locations of its vertices, but points instead to a vertex in a list (member \"vertices\" in the CityJSON Object). As is the case in CityGML, only linear and planar primitives are allowed; no curves or parametric surfaces can be represented."@en ;
+             rdfs:isDefinedBy :Geometry ;
+             rdfs:label "Geometry"@en ;
+             rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+rdf:List rdf:type owl:Class .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Bridge
+:Bridge rdf:type owl:Class ;
+        rdfs:subClassOf :FirstLevelCityObject ;
+        rdfs:comment "The Bridge module provides the representation of thematic and spatial aspects of bridges. Bridges are movable or unmovable structures that span intervening natural or built elements. In this way, bridges allow the passage of pedestrians, animals, vehicles, and service(s) above obstacles or between two points at a height above ground. Bridges can physically or functionally be subdivided into bridge parts. In addition, bridges can be decomposed into structural elements, such as pylons, anchorages, cables, slabs, and beams."@en ;
+        rdfs:isDefinedBy :Bridge ;
+        rdfs:label "Bridge"@en ;
+        rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc44> ,
+                     <https://www.cityjson.org/specs/2.0.0/#bridge> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BridgeConstructiveElement
+:BridgeConstructiveElement rdf:type owl:Class ;
+                           rdfs:subClassOf :BridgeSecondLevelObjects ;
+                           rdfs:isDefinedBy :BridgeConstructiveElement ;
+                           rdfs:label "Bridge Constructive Element"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BridgeFurniture
+:BridgeFurniture rdf:type owl:Class ;
+                 rdfs:subClassOf :BridgeSecondLevelObjects ;
+                 rdfs:isDefinedBy :BridgeFurniture ;
+                 rdfs:label "Bridge Furniture"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BridgePart
+:BridgePart rdf:type owl:Class ;
+            rdfs:subClassOf :BridgeSecondLevelObjects ;
+            rdfs:isDefinedBy :BridgePart ;
+            rdfs:label "Bridge Part"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BridgeRoom
+:BridgeRoom rdf:type owl:Class ;
+            rdfs:subClassOf :BridgeSecondLevelObjects ;
+            rdfs:isDefinedBy :BridgeRoom ;
+            rdfs:label "Bridge Room"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BridgeSecondLevelObjects
+:BridgeSecondLevelObjects rdf:type owl:Class ;
+                          rdfs:subClassOf :SecondLevelCityObject ;
+                          rdfs:isDefinedBy :BridgeSecondLevelObjects ;
+                          rdfs:label "Bridge Second-Level Objects"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BrigeInstallation
+:BrigeInstallation rdf:type owl:Class ;
+                   rdfs:subClassOf :BridgeSecondLevelObjects ;
+                   rdfs:isDefinedBy <https://www.cityjson.org/ont/cityjson.ttl#> ;
+                   rdfs:label "Bridge Installation"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Building
+:Building rdf:type owl:Class ;
+          rdfs:subClassOf :FirstLevelCityObject ;
+          rdfs:comment "The Building module provides the representation of thematic and spatial aspects of buildings. Buildings are free-standing, self-supporting constructions that are roofed and usually walled, and that can be entered by humans and are normally designed to stand permanently in one place. Buildings are intended for human occupancy (e.g., a place of work or recreation), habitation and/or shelter of humans, animals or things. Buildings can physically or functionally be subdivided into building parts, and logically into storeys and building units (e.g., apartments). In addition, buildings can be decomposed into structural elements, such as walls, slabs, staircases, and beams."@en ;
+          rdfs:isDefinedBy :Building ;
+          rdfs:label "Building"@en ;
+          rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc45> ,
+                       <https://www.cityjson.org/specs/2.0.0/#building> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingConstructiveElement
+:BuildingConstructiveElement rdf:type owl:Class ;
+                             rdfs:subClassOf :BuildingSecondLevelObjects ;
+                             rdfs:isDefinedBy :BuildingConstructiveElement ;
+                             rdfs:label "Building Constructive Element"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingFurniture
+:BuildingFurniture rdf:type owl:Class ;
+                   rdfs:subClassOf :BuildingSecondLevelObjects ;
+                   rdfs:isDefinedBy :BuildingFurniture ;
+                   rdfs:label "Building Furniture"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingInstallation
+:BuildingInstallation rdf:type owl:Class ;
+                      rdfs:subClassOf :BuildingSecondLevelObjects ;
+                      rdfs:isDefinedBy :BuildingInstallation ;
+                      rdfs:label "Building Installation"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingPart
+:BuildingPart rdf:type owl:Class ;
+              rdfs:subClassOf :BuildingSecondLevelObjects ;
+              rdfs:isDefinedBy :BuildingPart ;
+              rdfs:label "Building Part"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingRoom
+:BuildingRoom rdf:type owl:Class ;
+              rdfs:subClassOf :BuildingSecondLevelObjects ;
+              rdfs:isDefinedBy :BuildingRoom ;
+              rdfs:label "Building Room"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingSecondLevelObjects
+:BuildingSecondLevelObjects rdf:type owl:Class ;
+                            rdfs:subClassOf :SecondLevelCityObject ;
+                            rdfs:isDefinedBy :BuildingSecondLevelObjects ;
+                            rdfs:label "Building Second-Level Objects"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingStorey
+:BuildingStorey rdf:type owl:Class ;
+                rdfs:subClassOf :BuildingSecondLevelObjects ;
+                rdfs:isDefinedBy :BuildingStorey ;
+                rdfs:label "Building Storey"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#BuildingUnit
+:BuildingUnit rdf:type owl:Class ;
+              rdfs:subClassOf :BuildingSecondLevelObjects ;
+              rdfs:isDefinedBy :BuildingUnit ;
+              rdfs:label "Building Unit"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Children
+:Children rdf:type owl:Class ;
+          rdfs:subClassOf rdf:List ;
+          rdfs:comment "A City Object (1st or 2nd-level) may have one member with the name \"children\". The value is an array of the IDs (of type string) of the City Object’s children. The array references only the City Object’s direct children (2nd-level) but not the grandchildren. The order of the children in the array is not relevant."@en ;
+          rdfs:isDefinedBy :Children ;
+          rdfs:label "Children"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#CityFurniture
+:CityFurniture rdf:type owl:Class ;
+               rdfs:subClassOf :FirstLevelCityObject ;
+               rdfs:comment "The CityFurniture module provides the representation of objects or pieces of equipment that are installed in the outdoor environment for various purposes, such as decoration, explanation, or control. City furniture objects are relatively small, immovable objects and usually are of prototypical or geotypical form. Examples include road signs, traffic signals, bicycle racks, street lamps, fountains, flower buckets, advertising columns, and benches."@en ;
+               rdfs:isDefinedBy :CityFurniture ;
+               rdfs:label "City Furniture"@en ;
+               rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc32> ,
+                            <https://www.cityjson.org/specs/2.0.0/#cityfurniture> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#CityObjectGroup
+:CityObjectGroup rdf:type owl:Class ;
+                 rdfs:subClassOf :FirstLevelCityObject ;
+                 rdfs:comment "The CityObjectGroup module provides the application-specific aggregation of city objects according to some user-defined criteria. Examples for groups are the buildings in a specific region, the result of a query, or objects put together for visualization purposes. Each member of a group may be qualified by a role name, reflecting the role each city object plays in the context of the group."@en ;
+                 rdfs:isDefinedBy :CityObjectGroup ;
+                 rdfs:label "City Object Group"@en ;
+                 rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc33> ,
+                              <https://www.cityjson.org/specs/2.0.0/#cityobjectgroup> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Cityjson
+:Cityjson rdf:type owl:Class ;
+          rdfs:comment "A CityJSON represents one 3D city model of a given area, this model may contain features of different types, as defined in the CityGML data model."@en ;
+          rdfs:isDefinedBy :Cityjson ;
+          rdfs:label "CityJSON"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#cityjson-object> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Cityobject
+:Cityobject rdf:type owl:Class ;
+            rdfs:comment "Abstract parent class of all the types of city objects"@en ;
+            rdfs:isDefinedBy :Cityobject ;
+            rdfs:label "City Object"@en ;
+            rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#the-different-city-objects> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#FirstLevelCityObject
+:FirstLevelCityObject rdf:type owl:Class ;
+                      rdfs:subClassOf :Cityobject ;
+                      rdfs:comment "1st-level: City Objects that can \"exist by themselves\" and cannot have a parent."@en ;
+                      rdfs:isDefinedBy :FirstLevelCityObject ;
+                      rdfs:label "First-Level City Object"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#GenericCityObject
+:GenericCityObject rdf:type owl:Class ;
+                   rdfs:subClassOf :FirstLevelCityObject ;
+                   rdfs:comment "The Generics module provides the representation of generic city objects. These are city objects that are not covered by any explicitly modeled thematic class within the CityGML/CityJSON Conceptual Model. The Generics module also provides the representation of generic attributes which are attributes that are not explicitly represented in the CityGML/CityJSON Conceptual Model. In order to avoid problems concerning semantic interoperability, generic city objects and generic attributes shall only be used if appropriate thematic classes and attributes are not provided by any other CityGML/CityJSON module."@en ;
+                   rdfs:isDefinedBy :GenericCityObject ;
+                   rdfs:label "Generic City Object"@en ;
+                   rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc35> ,
+                                <https://www.cityjson.org/specs/2.0.0/#cityobjectgroup> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#GeographicalExtent
+:GeographicalExtent rdf:type owl:Class ;
+                    rdfs:comment "Geographical Extent represents the axis-aligned bounding box of the City Object"@en ;
+                    rdfs:isDefinedBy :GeographicalExtent ;
+                    rdfs:label "Geographical Extent"@en ;
+                    rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geographicalextent-bbox> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#LandUse
+:LandUse rdf:type owl:Class ;
+         rdfs:subClassOf :FirstLevelCityObject ;
+         rdfs:comment "The LandUse module defines objects that can be used to describe areas of the earth’s surface dedicated to a specific land use or having a specific land cover with or without vegetation, such as sand, rock, mud flats, forest, grasslands, or wetlands (i.e., the physical appearance)."@en ;
+         rdfs:isDefinedBy :LandUse ;
+         rdfs:label "Land use"@en ;
+         rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc36> ,
+                      <https://www.cityjson.org/specs/2.0.0/#landuse> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Metadata
+:Metadata rdf:type owl:Class ;
+          rdfs:comment "Defines the schema required for describing geographic information and services by means of metadata. It provides information about the identification, the extent, the quality, the spatial and temporal aspects, the content, the spatial reference, the portrayal, distribution, and other properties of digital geographic data and services."@en ;
+          rdfs:isDefinedBy :Metadata ;
+          rdfs:label "Metadata"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#metadata> ,
+                       <https://www.iso.org/standard/53798.html> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#OtherConstruction
+:OtherConstruction rdf:type owl:Class ;
+                   rdfs:subClassOf :FirstLevelCityObject ;
+                   rdfs:isDefinedBy :OtherConstruction ;
+                   rdfs:label "Other Construction"@en ;
+                   rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc43> ,
+                                <https://www.cityjson.org/specs/2.0.0/#otherconstruction> ,
+                                "The Construction module defines concepts that are common to all forms of constructions. Constructions are objects that are manufactured by humans from construction materials, are connected to earth, and are intended to be permanent. The Construction module focuses on as-built representations of constructions and integrates all concepts that are similar over different types of constructions, in particular buildings, bridges, and tunnels. In addition, for representing man-made structures that are neither buildings, nor bridges, nor tunnels so-called other constructions (e.g., large chimneys or city walls) can be defined."@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#PlantCover
+:PlantCover rdf:type owl:Class ;
+            rdfs:subClassOf :FirstLevelCityObject ;
+            rdfs:comment "The Vegetation module defines the concepts to represent vegetation within city models. Vegetation can be represented either as solitary vegetation objects, such as trees, bushes and ferns, or as vegetation areas that are covered by plants of a given species or a typical mixture of plant species, such as forests, steppes and wet meadows."@en ;
+            rdfs:isDefinedBy :PlantCover ;
+            rdfs:label "Plant Cover"@en ;
+            rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc40> ,
+                         <https://www.cityjson.org/specs/2.0.0/#plantcover> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#PointOfContact
+:PointOfContact rdf:type owl:Class ;
+                rdfs:comment "The point of contact for the dataset."@en ;
+                rdfs:isDefinedBy :PointOfContact ;
+                rdfs:label "Point of Contact"@en ;
+                rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#pointofcontact> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Railway
+:Railway rdf:type owl:Class ;
+         rdfs:subClassOf :FirstLevelCityObject ;
+         rdfs:comment "The Transportation module defines central elements of the traffic infrastructure. This includes the transportation objects road, track, and square for the movement of vehicles, bicycles, and pedestrians, the transportation object railway for the movement of wheeled vehicles on rails, as well as the transportation object waterway for the movement of vessels upon or within water bodies. Transportation objects can be subdivided into sections, which can be regular road, track or railway legs, into intersection areas, and into roundabouts."@en ;
+         rdfs:isDefinedBy :Railway ;
+         rdfs:label "Railway"@en ;
+         rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
+                      <https://www.cityjson.org/specs/2.0.0/#transportation> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Road
+:Road rdf:type owl:Class ;
+      rdfs:subClassOf :FirstLevelCityObject ;
+      rdfs:comment "The Transportation module defines central elements of the traffic infrastructure. This includes the transportation objects road, track, and square for the movement of vehicles, bicycles, and pedestrians, the transportation object railway for the movement of wheeled vehicles on rails, as well as the transportation object waterway for the movement of vessels upon or within water bodies. Transportation objects can be subdivided into sections, which can be regular road, track or railway legs, into intersection areas, and into roundabouts."@en ;
+      rdfs:isDefinedBy :Road ;
+      rdfs:label "Road"@en ;
+      rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
+                   <https://www.cityjson.org/specs/2.0.0/#transportation> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Scale
+:Scale rdf:type owl:Class ;
+       rdfs:comment "To reduce the size of a CityJSON object (and thus the size of files) and to ensure that only a fixed number of digits is stored for the coordinates of the geometries, the coordinates of the vertices of the geometries are represented with integer values. We therefore need to store the scale factor and the translation needed to obtain the original coordinates (stored with floats/doubles). The \"scale\" member indicates that 3 important digits are kept (thus millimetre level if meters are the units of the CRS)"@en ;
+       rdfs:isDefinedBy :Scale ;
+       rdfs:label "Scale"@en ;
+       rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#transform-object> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#SecondLevelCityObject
+:SecondLevelCityObject rdf:type owl:Class ;
+                       rdfs:subClassOf :Cityobject ;
+                       rdfs:comment "2nd-level: City Objects that need to have a parent to exist."@en ;
+                       rdfs:isDefinedBy :SecondLevelCityObject ;
+                       rdfs:label "2nd-level City Object"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Semantic
+:Semantic rdf:type owl:Class ;
+          rdfs:comment "Semantic Object is a JSON object representing the semantics of a primitive of a geometry (e.g. a surface of a building). A Semantic Object may also represent other attributes of the primitive (e.g. the slope of the roof, or the solar potential). For surface and volumetric geometries (e.g. MultiSurface, Solid and MultiSolid), a primitive is a surface. If a geometry is a MultiPoint or a MultiLineString, then the primitives are its respective sub-parts: points and linestrings."@en ;
+          rdfs:isDefinedBy :Semantic ;
+          rdfs:label "Semantic"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#semantics-of-geometric-primitives> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#SolitaryVegetationObject
+:SolitaryVegetationObject rdf:type owl:Class ;
+                          rdfs:subClassOf :FirstLevelCityObject ;
+                          rdfs:isDefinedBy :SolitaryVegetationObject ,
+                                           "The Vegetation module defines the concepts to represent vegetation within city models. Vegetation can be represented either as solitary vegetation objects, such as trees, bushes and ferns, or as vegetation areas that are covered by plants of a given species or a typical mixture of plant species, such as forests, steppes and wet meadows."@en ;
+                          rdfs:label "Solitary Vegetation Object"@en ;
+                          rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc40> ,
+                                       <https://www.cityjson.org/specs/2.0.0/#solitaryvegetationobject> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TINRelief
+:TINRelief rdf:type owl:Class ;
+           rdfs:subClassOf :FirstLevelCityObject ;
+           rdfs:comment "The Relief module provides the representation of terrain which is an essential part of city models. In CityGML, the terrain is modeled by relief features. The relief features, in turn, are collections of relief components that describe the Earth’s surface, also known as the Digital Terrain Model. The relief components can have different terrain representations which can coexist. Each relief component may be specified as a regular raster or grid, as a TIN (Triangulated Irregular Network), by break lines, or by mass points. In addition, the validity of the relief components may be restricted to certain areas."@en ;
+           rdfs:isDefinedBy :TINRelief ;
+           rdfs:label "TIN Relief"@en ;
+           rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc38> ,
+                        <https://www.cityjson.org/specs/2.0.0/#tinrelief> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Transform
+:Transform rdf:type owl:Class ;
+           rdfs:comment "A CityJSON object must therefore have one member \"transform\", whose values are 2 mandatory JSON objects, \"scale\" and \"translate\", both arrays with 3 values."@en ;
+           rdfs:isDefinedBy :Transform ;
+           rdfs:label "Transform"@en ;
+           rdfs:seeAlso <https://github.com/topojson/topojson-specification/blob/master/README.md#212-transforms> ,
+                        <https://www.cityjson.org/specs/2.0.0/#transform-object> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Translate
+:Translate rdf:type owl:Class ;
+           rdfs:comment "To reduce the size of a CityJSON object (and thus the size of files) and to ensure that only a fixed number of digits is stored for the coordinates of the geometries, the coordinates of the vertices of the geometries are represented with integer values. We therefore need to store the scale factor and the translation needed to obtain the original coordinates (stored with floats/doubles). The values of the \"translate\" member usually matches with the minimum values of the axis-aligned bounding box (but does not need to)."@en ;
+           rdfs:isDefinedBy :Translate ;
+           rdfs:label "Translate"@en ;
+           rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#transform-object> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TransportationSquare
+:TransportationSquare rdf:type owl:Class ;
+                      rdfs:subClassOf :FirstLevelCityObject ;
+                      rdfs:comment "The Transportation module defines central elements of the traffic infrastructure. This includes the transportation objects road, track, and square for the movement of vehicles, bicycles, and pedestrians, the transportation object railway for the movement of wheeled vehicles on rails, as well as the transportation object waterway for the movement of vessels upon or within water bodies. Transportation objects can be subdivided into sections, which can be regular road, track or railway legs, into intersection areas, and into roundabouts."@en ;
+                      rdfs:isDefinedBy :TransportationSquare ;
+                      rdfs:label "Transportation Square"@en ;
+                      rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
+                                   <https://www.cityjson.org/specs/2.0.0/#transportation> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Tunnel
+:Tunnel rdf:type owl:Class ;
+        rdfs:subClassOf :FirstLevelCityObject ;
+        rdfs:comment "The Tunnel module provides the representation of thematic and spatial aspects of tunnels. Tunnels are horizontal or sloping enclosed passage ways of a certain length, mainly underground or underwater. Tunnels are intended for passing obstacles such as mountains, waterways, or other traffic routes by humans, animals, or things."@en ;
+        rdfs:isDefinedBy :Tunnel ;
+        rdfs:label "Tunnel"@en ;
+        rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc46> ,
+                     <https://www.cityjson.org/specs/2.0.0/#tunnel> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelConstuctiveElement
+:TunnelConstuctiveElement rdf:type owl:Class ;
+                          rdfs:subClassOf :TunnelSecondLevelObjects ;
+                          rdfs:isDefinedBy :TunnelConstuctiveElement ;
+                          rdfs:label "Tunnel Constuctive Element"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelFurniture
+:TunnelFurniture rdf:type owl:Class ;
+                 rdfs:subClassOf :TunnelSecondLevelObjects ;
+                 rdfs:isDefinedBy :TunnelFurniture ;
+                 rdfs:label "Tunne lFurniture"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelHollowSpace
+:TunnelHollowSpace rdf:type owl:Class ;
+                   rdfs:subClassOf :TunnelSecondLevelObjects ;
+                   rdfs:isDefinedBy :TunnelHollowSpace ;
+                   rdfs:label "Tunnel Hollow Space"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelInstallation
+:TunnelInstallation rdf:type owl:Class ;
+                    rdfs:subClassOf :TunnelSecondLevelObjects ;
+                    rdfs:isDefinedBy :TunnelInstallation ;
+                    rdfs:label "Tunnel Installation"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelPart
+:TunnelPart rdf:type owl:Class ;
+            rdfs:subClassOf :TunnelSecondLevelObjects ;
+            rdfs:isDefinedBy :TunnelPart ;
+            rdfs:label "Tunnel Part"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#TunnelSecondLevelObjects
+:TunnelSecondLevelObjects rdf:type owl:Class ;
+                          rdfs:subClassOf :SecondLevelCityObject ;
+                          rdfs:isDefinedBy :TunnelSecondLevelObjects ;
+                          rdfs:label "Tunnel Second-Level Objects"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Vertex
+:Vertex rdf:type owl:Class ;
+        rdfs:comment "One vertex must be an object with exactly 3 integers, representing the (x,y,z) location of the vertex before it is transformed to its real-world coordinates"@en ;
+        rdfs:isDefinedBy :Vertex ;
+        rdfs:label "Vertex"@en ;
+        rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#coordinates-of-the-vertices> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Vertices
+:Vertices rdf:type owl:Class ;
+          rdfs:subClassOf rdf:List ;
+          rdfs:comment "A CityJSON Object must have one member named \"vertices\". The value is an array of objects of 3 integers representing the coordinates of each vertex of the city model. The position of a vertex in this array (0-based) is used to represent the \"boundaries\" of Geometry Objects."@en ;
+          rdfs:isDefinedBy :Vertices ;
+          rdfs:label "Vertices"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#coordinates-of-the-vertices> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Waterbody
+:Waterbody rdf:type owl:Class ;
+           rdfs:subClassOf :FirstLevelCityObject ;
+           rdfs:comment "The WaterBody module provides the representation of significant and permanent or semi-permanent accumulations of surface water, usually covering a part of the Earth. Examples of such water bodies are rivers, canals, lakes, and basins."@en ;
+           rdfs:isDefinedBy :Waterbody ;
+           rdfs:label "Water Body"@en ;
+           rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc42> ,
+                        <https://www.cityjson.org/specs/2.0.0/#waterbody> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Waterway
+:Waterway rdf:type owl:Class ;
+          rdfs:subClassOf :FirstLevelCityObject ;
+          rdfs:comment "The Transportation module defines central elements of the traffic infrastructure. This includes the transportation objects road, track, and square for the movement of vehicles, bicycles, and pedestrians, the transportation object railway for the movement of wheeled vehicles on rails, as well as the transportation object waterway for the movement of vessels upon or within water bodies. Transportation objects can be subdivided into sections, which can be regular road, track or railway legs, into intersection areas, and into roundabouts."@en ;
+          rdfs:isDefinedBy :Waterway ;
+          rdfs:label "Waterway"@en ;
+          rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
+                       <https://www.cityjson.org/specs/2.0.0/#transportation> .
+
