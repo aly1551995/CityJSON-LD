@@ -3,6 +3,7 @@
 @prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 #################################################################
 #    Cityjson Shape
@@ -426,7 +427,15 @@ cj:FirstLevelCityObjectShape
         sh:node cj:ChildrenShape ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+    sh:path cj:hasGeometry ;
+    sh:node cj:GeometryShape ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
     ] .
+
 
 #################################################################
 #    Children Shape
@@ -434,14 +443,14 @@ cj:FirstLevelCityObjectShape
 
 cj:ChildrenShape 
   a sh:NodeShape ;
-    sh:targetClass rdf:List ; 
+    sh:targetClass cj:Children ; 
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
     ] ;
     sh:property [ 
         sh:path rdf:first ;
-        sh:datatype xsd:string ; 
+        sh:node cj:SecondLevelCityObjectShape ;
     ],
     [
         sh:path rdf:rest ;
@@ -506,5 +515,49 @@ cj:SecondLevelCityObjectShape
         sh:datatype xsd:string ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:hasGeometry ;
+        sh:node cj:GeometryShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
     ] .
 
+#################################################################
+#    Geometry Shape
+#################################################################
+
+cj:GeometryShape 
+  a sh:NodeShape ;
+    sh:targetClass geosparql:Geometry ; 
+    sh:closed true ;
+    sh:property [
+        sh:path rdf:type ;
+    ] ;
+    sh:property [
+        sh:path cj:type ;
+        sh:in (
+                "MultiPoint"
+                "MultiLineString"
+                "MultiSurface"
+                "CompositeSurface"
+                "Solid"
+                "MultiSolid"
+                "CompositeSolid"
+                "GeometryInstance"
+            ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path cj:lod ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path geosparql:asWKT ;
+        sh:datatype geosparql:wktLiteral ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .

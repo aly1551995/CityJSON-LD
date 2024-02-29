@@ -1,10 +1,10 @@
 @prefix : <https://www.cityjson.org/ont/cityjson.ttl#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @base <https://www.cityjson.org/ont/cityjson.ttl#> .
 
 <https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology .
@@ -42,7 +42,7 @@
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasGeometry
 :hasGeometry rdf:type owl:ObjectProperty ;
              rdfs:domain :Cityobject ;
-             rdfs:range geo:Geometry .
+             rdfs:range geosparql:Geometry .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasMetadata
@@ -63,12 +63,6 @@
           rdfs:range :Scale .
 
 
-###  https://www.cityjson.org/ont/cityjson.ttl#hasSemantic
-:hasSemantic rdf:type owl:ObjectProperty ;
-             rdfs:domain geo:Geometry ;
-             rdfs:range :Semantic .
-
-
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasTransform
 :hasTransform rdf:type owl:ObjectProperty ;
               rdfs:domain :Cityjson ;
@@ -79,12 +73,6 @@
 :hasTranslate rdf:type owl:ObjectProperty ;
               rdfs:domain :Transform ;
               rdfs:range :Translate .
-
-
-###  https://www.cityjson.org/ont/cityjson.ttl#hasVertex
-:hasVertex rdf:type owl:ObjectProperty ;
-           rdfs:domain :Vertices ;
-           rdfs:range :Vertex .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasVertices
@@ -122,7 +110,7 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#lod
 :lod rdf:type owl:DatatypeProperty ;
-     rdfs:domain geo:Geometry ;
+     rdfs:domain geosparql:Geometry ;
      rdfs:range xsd:string .
 
 
@@ -215,11 +203,6 @@
         rdfs:range xsd:decimal .
 
 
-###  https://www.cityjson.org/ont/cityjson.ttl#semanticOtherMembers
-:semanticOtherMembers rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Semantic .
-
-
 ###  https://www.cityjson.org/ont/cityjson.ttl#title
 :title rdf:type owl:DatatypeProperty ;
        rdfs:domain :Metadata ;
@@ -288,11 +271,11 @@
 #################################################################
 
 ###  http://www.opengis.net/ont/geosparql#Geometry
-geo:Geometry rdf:type owl:Class ;
-             rdfs:comment "CityJSON defines 3D geometric primitives, all of which are embedded in 3D space (and therefore their vertices have (x, y, z) coordinates). Similarly to the indexing mechanism of the format Wavefront OBJ, the geometry object does not store the locations of its vertices, but points instead to a vertex in a list (member \"vertices\" in the CityJSON Object). As is the case in CityGML, only linear and planar primitives are allowed; no curves or parametric surfaces can be represented."@en ;
-             rdfs:isDefinedBy :Geometry ;
-             rdfs:label "Geometry"@en ;
-             rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
+geosparql:Geometry rdf:type owl:Class ;
+                   rdfs:comment "CityJSON defines 3D geometric primitives, all of which are embedded in 3D space (and therefore their vertices have (x, y, z) coordinates). Similarly to the indexing mechanism of the format Wavefront OBJ, the geometry object does not store the locations of its vertices, but points instead to a vertex in a list (member \"vertices\" in the CityJSON Object). As is the case in CityGML, only linear and planar primitives are allowed; no curves or parametric surfaces can be represented."@en ;
+                   rdfs:isDefinedBy geosparql:Geometry ;
+                   rdfs:label "Geometry"@en ;
+                   rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
@@ -570,14 +553,6 @@ rdf:List rdf:type owl:Class .
                        rdfs:label "2nd-level City Object"@en .
 
 
-###  https://www.cityjson.org/ont/cityjson.ttl#Semantic
-:Semantic rdf:type owl:Class ;
-          rdfs:comment "Semantic Object is a JSON object representing the semantics of a primitive of a geometry (e.g. a surface of a building). A Semantic Object may also represent other attributes of the primitive (e.g. the slope of the roof, or the solar potential). For surface and volumetric geometries (e.g. MultiSurface, Solid and MultiSolid), a primitive is a surface. If a geometry is a MultiPoint or a MultiLineString, then the primitives are its respective sub-parts: points and linestrings."@en ;
-          rdfs:isDefinedBy :Semantic ;
-          rdfs:label "Semantic"@en ;
-          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#semantics-of-geometric-primitives> .
-
-
 ###  https://www.cityjson.org/ont/cityjson.ttl#SolitaryVegetationObject
 :SolitaryVegetationObject rdf:type owl:Class ;
                           rdfs:subClassOf :FirstLevelCityObject ;
@@ -712,4 +687,5 @@ rdf:List rdf:type owl:Class .
           rdfs:label "Waterway"@en ;
           rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
                        <https://www.cityjson.org/specs/2.0.0/#transportation> .
+
 

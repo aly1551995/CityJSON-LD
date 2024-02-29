@@ -3,6 +3,7 @@
 @prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix ex: <http://example.com/> .
 
 ex:Cityjson a cj:Cityjson ;
@@ -28,7 +29,29 @@ ex:Translate a cj:Translate ;
     cj:translateZ 0.0 .
 
 ex:CityObject a cj:FirstLevelCityObject ;
-    cj:type "Bridge" .
+    cj:type "Bridge" ;
+    cj:hasChildren ex:childrenList ;
+    cj:hasGeometry ex:myGeometryShape .
+
+ex:childrenList a cj:Children ;
+                rdf:first ex:CityObject2 ;
+               rdf:rest [ rdf:first ex:CityObject3 ; rdf:rest rdf:nil ] .
+
+
+ex:CityObject2 a cj:SecondLevelCityObject ;
+    cj:type "BridgePart" ;
+    cj:parentID "CityObject" ;
+    cj:hasGeometry ex:myGeometryShape .
+
+ex:CityObject3 a cj:SecondLevelCityObject ;
+    cj:type "BridgePart" ;
+    cj:parentID "CityObject" ;
+    cj:hasGeometry ex:myGeometryShape .
+
+ex:myGeometryShape a geosparql:Geometry ;
+    cj:type "MultiPoint" ;
+    cj:lod "1" ;
+    geosparql:asWKT "MULTIPOINT((10 40), (40 30), (20 20), (30 10))"^^geosparql:wktLiteral .
 
 ex:Vertices a cj:Vertices ;
 rdf:first ex:Vertex1 ;
