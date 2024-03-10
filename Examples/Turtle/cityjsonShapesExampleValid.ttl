@@ -40,7 +40,7 @@ ex:childrenList a cj:Children ;
 
 ex:CityObject2 a cj:SecondLevelCityObject ;
     cj:type "BridgePart" ;
-    cj:parentID "CityObject" ;
+    cj:hasParent ex:CityObject ;
     cj:hasGeometry ex:myGeometryShape .
 
 ex:CityObject3 a cj:SecondLevelCityObject ;

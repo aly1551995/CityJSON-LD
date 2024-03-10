@@ -161,7 +161,7 @@ cj:VerticesShape
     [
         sh:path rdf:rest ;
         sh:or ([sh:node cj:VerticesShape ;] 
-               [ sh:datatype xsd:nil ;] ) ;
+               [ sh:node rdf:nil ;] ) ;
     ] .
 
 #################################################################
@@ -455,7 +455,7 @@ cj:ChildrenShape
     [
         sh:path rdf:rest ;
         sh:or ([sh:node cj:ChildrenShape ;] 
-               [ sh:datatype xsd:nil ;] ) ;
+               [ sh:node rdf:nil ;] ) ;
     ] .
 
 #################################################################
@@ -511,8 +511,8 @@ cj:SecondLevelCityObjectShape
         sh:maxCount 1 ;
     ];
     sh:property [
-        sh:path cj:parentID ;
-        sh:datatype xsd:string ;
+        sh:path cj:hasParent ;
+        sh:node cj:FirstLevelCityObjectShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
