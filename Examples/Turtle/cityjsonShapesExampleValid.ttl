@@ -11,6 +11,8 @@ ex:Cityjson a cj:Cityjson ;
     cj:version "1.0" ;
     cj:hasTransform ex:Transform ;
     cj:hasCityObjects ex:CityObject ;
+    cj:hasCityObjects ex:CityObject2 ;
+    cj:hasCityObjects ex:CityObject3 ;
     cj:hasVertices ex:Vertices ;
     cj:hasMetadata ex:Metadata .
 
@@ -30,14 +32,10 @@ ex:Translate a cj:Translate ;
 
 ex:CityObject a cj:FirstLevelCityObject ;
     cj:type "Bridge" ;
-    cj:hasChildren ex:childrenList ;
-    cj:hasGeometry ex:myGeometryShape .
-
-ex:childrenList a cj:Children ;
-                rdf:first ex:CityObject2 ;
-               rdf:rest [ rdf:first ex:CityObject3 ; rdf:rest rdf:nil ] .
-
-
+    cj:hasGeometry ex:myGeometryShape;
+    cj:hasChildren ex:CityObject2;
+    cj:hasChildren ex:CityObject3.
+    
 ex:CityObject2 a cj:SecondLevelCityObject ;
     cj:type "BridgePart" ;
     cj:hasParent ex:CityObject ;
@@ -45,7 +43,7 @@ ex:CityObject2 a cj:SecondLevelCityObject ;
 
 ex:CityObject3 a cj:SecondLevelCityObject ;
     cj:type "BridgePart" ;
-    cj:parentID "CityObject" ;
+    cj:hasParent ex:CityObject ;
     cj:hasGeometry ex:myGeometryShape .
 
 ex:myGeometryShape a geosparql:Geometry ;

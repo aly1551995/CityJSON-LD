@@ -6,6 +6,7 @@
       "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
       "sh": "http://www.w3.org/ns/shacl#",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "geo": "http://www.opengis.net/ont/geosparql#",
       "ex": "http://example.com/"
     },
     "@id": "http://example.com/Cityjson",
@@ -20,15 +21,15 @@
         "@type": "cj:Scale",
         "cj:scaleX": {
           "@value": "1.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:scaleY": {
           "@value": "1.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:scaleZ": {
           "@value": "1.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         }
       },
       "cj:hasTranslate": {
@@ -36,50 +37,79 @@
         "@type": "cj:Translate",
         "cj:translateX": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:translateY": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:translateZ": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         }
       }
     },
-    "cj:hasCityObjects": {
-      "@id": "ex:Building-1",
-      "@type": "cj:FirstLevelCityObject",
-      "cj:type": "Building"
-    },
+    "cj:hasCityObjects": [
+      {
+        "@id": "ex:Building-1",
+        "@type": "cj:FirstLevelCityObject",
+        "cj:type": "Building",
+        "cj:hasGeometry": {
+          "@type": "geo:Geometry",
+          "cj:type": "MultiPoint",
+          "cj:lod": "1",
+          "geo:asWKT": {
+            "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
+            "@type": "geo:wktLiteral"
+          }
+        },
+        "cj:hasChildren": [
+          {
+            "@id": "ex:Building-Part"
+          }
+        ]
+      },
+      {
+        "@id": "ex:Building-part",
+        "@type": "cj:SecondLevelCityObject",
+        "cj:type": "BuildingPart",
+        "cj:hasParent": {
+          "@id": "ex:Building-1",
+          "@type": "cj:FirstLevelCityObject"
+        },
+        "cj:hasGeometry": {
+          "@type": "geo:Geometry",
+          "cj:type": "MultiPoint",
+          "cj:lod": "1",
+          "geo:asWKT": {
+            "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
+            "@type": "geo:wktLiteral"
+          }
+        }
+      }
+    ],
     "cj:hasVertices": {
-      "@id": "http://example.com/VerticesList",
       "@type": "cj:Vertices",
       "@list": [
         {
-          "@id": "http://example.com/Vertex1",
           "@type": "cj:Vertex",
           "cj:vertexX": 0,
           "cj:vertexY": 0,
           "cj:vertexZ": 0
         },
         {
-          "@id": "http://example.com/Vertex2",
           "@type": "cj:Vertex",
           "cj:vertexX": 0,
           "cj:vertexY": 0,
           "cj:vertexZ": 0
         },
         {
-          "@id": "http://example.com/Vertex3",
           "@type": "cj:Vertex",
           "cj:vertexX": 0,
           "cj:vertexY": 0,
           "cj:vertexZ": 0
         },
         {
-          "@id": "http://example.com/Vertex4",
           "@type": "cj:Vertex",
           "cj:vertexX": 0,
           "cj:vertexY": 0,
@@ -95,27 +125,27 @@
         "@type": "cj:GeographicalExtent",
         "cj:minX": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:maxX": {
           "@value": "10.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:minY": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:maxY": {
           "@value": "10.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:minZ": {
           "@value": "0.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         },
         "cj:maxZ": {
           "@value": "10.0",
-          "@type": "xsd:decimal"
+          "@type": "xsd:float"
         }
       },
       "cj:identifier": "123",

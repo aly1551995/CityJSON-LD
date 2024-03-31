@@ -96,19 +96,19 @@ cj:ScaleShape
     ] ;
     sh:property [
         sh:path cj:scaleX ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:scaleY ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:scaleZ ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] .
@@ -126,19 +126,19 @@ cj:TranslateShape
     ] ;
     sh:property [
         sh:path cj:translateX ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:translateY ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:translateZ ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] .
@@ -256,37 +256,37 @@ cj:GeographicalExtentShape
     ] ;
   sh:property [
         sh:path cj:minX ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
   sh:property [
         sh:path cj:maxX ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:minY ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:maxY ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:minZ ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
         sh:path cj:maxZ ;
-        sh:datatype xsd:decimal ;
+        sh:datatype xsd:float ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] .
@@ -424,9 +424,8 @@ cj:FirstLevelCityObjectShape
     ] ; 
     sh:property [
         sh:path cj:hasChildren ;
-        sh:node cj:ChildrenShape ;
+        sh:node cj:SecondLevelCityObject ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ] ;
 
     sh:property [
@@ -434,28 +433,6 @@ cj:FirstLevelCityObjectShape
     sh:node cj:GeometryShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-    ] .
-
-
-#################################################################
-#    Children Shape
-#################################################################
-
-cj:ChildrenShape 
-  a sh:NodeShape ;
-    sh:targetClass cj:Children ; 
-    sh:closed true ;
-    sh:property [
-        sh:path rdf:type ;
-    ] ;
-    sh:property [ 
-        sh:path rdf:first ;
-        sh:node cj:SecondLevelCityObjectShape ;
-    ],
-    [
-        sh:path rdf:rest ;
-        sh:or ([sh:node cj:ChildrenShape ;] 
-               [ sh:node rdf:nil ;] ) ;
     ] .
 
 #################################################################
@@ -506,13 +483,15 @@ cj:SecondLevelCityObjectShape
     ] ; 
     sh:property [
         sh:path cj:hasChildren ;
-        sh:node cj:ChildrenShape ;
+        sh:node cj:SecondLevelCityObjectShape ;
         sh:minCount 0 ;
-        sh:maxCount 1 ;
     ];
     sh:property [
         sh:path cj:hasParent ;
-        sh:node cj:FirstLevelCityObjectShape ;
+        sh:or (
+            [ sh:node cj:FirstLevelCityObjectShape ]
+            [ sh:node cj:SecondLevelCityObjectShape ]
+        ) ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;

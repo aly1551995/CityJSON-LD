@@ -1,0 +1,195 @@
+{
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "ex": "http://example.com/"
+    },
+    "@id": "http://example.com/Cityjson",
+    "@type": "cj:Cityjson",
+    "cj:type": "CityJSON",
+    "cj:version": "2.0",
+    "cj:hasVertices": {
+        "@type": "cj:Vertices",
+        "@list": [
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 0,
+                "cj:vertexY": 0,
+                "cj:vertexZ": 1000
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 1000,
+                "cj:vertexY": 0,
+                "cj:vertexZ": 1000
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 1000,
+                "cj:vertexY": 1000,
+                "cj:vertexZ": 1000
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 0,
+                "cj:vertexY": 1000,
+                "cj:vertexZ": 1000
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 0,
+                "cj:vertexY": 0,
+                "cj:vertexZ": 0
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 1000,
+                "cj:vertexY": 0,
+                "cj:vertexZ": 0
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 1000,
+                "cj:vertexY": 1000,
+                "cj:vertexZ": 0
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": 0,
+                "cj:vertexY": 1000,
+                "cj:vertexZ": 0
+            }
+        ]
+    },
+    "cj:hasCityObjects": [
+        {
+            "@id": "ex:id-1",
+            "@type": "cj:FirstLevelCityObject",
+            "cj:type": "Bridge",
+            "cj:hasAttribute": {
+                "function": "something"
+            },
+            "cj:hasChildren": [
+                {
+                    "@id": "ex:id-2"
+                }
+            ],
+            "cj:hasGeometry": {
+                "@type": "geo:Geometry",
+                "cj:type": "MultiPoint",
+                "cj:lod": "1",
+                "geo:asWKT": {
+                  "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
+                  "@type": "geo:wktLiteral"
+                }
+              }
+        },
+        {
+            "@id": "ex:id-2",
+            "@type": "cj:SecondLevelCityObject",
+            "cj:type": "BridgePart",
+            "cj:hasParent": {
+                "@id": "ex:id-1"
+            },
+            "cj:hasAttribute": {
+                "function": "something"
+            },
+            "cj:hasGeometry": {
+                "@type": "geo:Geometry",
+                "cj:type": "MultiPoint",
+                "cj:lod": "1",
+                "geo:asWKT": {
+                  "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
+                  "@type": "geo:wktLiteral"
+                }
+              }
+        }
+    ],
+    "cj:hasTransform": {
+        "@type": "cj:Transform",
+        "cj:hasScale": {
+            "@type": "cj:Scale",
+            "cj:scaleX": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleY": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleZ": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            }
+        },
+        "cj:hasTranslate": {
+            "@type": "cj:Translate",
+            "cj:translateX": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateY": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateZ": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            }
+        }
+    },
+    "cj:hasMetadata": {
+        "@type": "cj:Metadata",
+        "cj:hasGeographicalExtent": {
+            "@type": "cj:GeographicalExtent",
+            "cj:minX": {
+                "@value": 84710.1,
+                "@type": "xsd:float"
+            },
+            "cj:maxX": {
+                "@value": -5.3,
+                "@type": "xsd:float"
+            },
+            "cj:minY": {
+                "@value": 446944.0,
+                "@type": "xsd:float"
+            },
+            "cj:maxY": {
+                "@value": 446846.0,
+                "@type": "xsd:float"
+            },
+            "cj:minZ": {
+                "@value": 84757.1,
+                "@type": "xsd:float"
+            },
+            "cj:maxZ": {
+                "@value": 40.9,
+                "@type": "xsd:float"
+            }
+        },
+        "cj:identifier": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
+        "cj:hasPointOfContact": {
+            "@type": "cj:PointOfContact",
+            "cj:contactName": "3D geoinformation group, Delft University of Technology",
+            "cj:emailAddress": "3dgeoinfo-bk@tudelft.nl",
+            "cj:role": "owner",
+            "cj:website": "https://3d.bk.tudelft.nl",
+            "cj:contactType": "organization",
+            "cj:phone": "+31-6666666666",
+            "cj:hasAddress": {
+                "thoroughfareNumber": "134",
+                "thoroughfareName": "Julianalaan",
+                "locality": "Delft",
+                "postcode": "2628BL",
+                "country": "the Netherlands"
+            }
+        },
+        "cj:referenceDate": "1977-02-28",
+        "cj:referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/2355",
+        "cj:title": "Buildings in LoD2.3 of Chibougamau, QuÃ©bec"
+    }
+}

@@ -15,15 +15,15 @@ class Scale:
             "@type": "cj:Scale",
             "cj:scaleX": {
                 "@value": self.x,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             },
             "cj:scaleY": {
                 "@value": self.y,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             },
             "cj:scaleZ": {
                 "@value": self.z,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             }
         }
         return json.dumps(data, ensure_ascii=False)

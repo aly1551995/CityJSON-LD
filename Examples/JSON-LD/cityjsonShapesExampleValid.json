@@ -50,7 +50,16 @@
    "cj:hasCityObjects": {
       "@id": "ex:Building-1",
       "@type": "cj:FirstLevelCityObject",
-      "cj:type": "Building"
+      "cj:type": "Building",
+      "cj:hasGeometry": {
+         "@type": "geo:Geometry",
+         "cj:type": "MultiPoint",
+         "cj:lod": "1",
+         "geo:asWKT": {
+            "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
+            "@type": "geo:wktLiteral"
+         }
+      }
    },
    "cj:hasVertices": {
       "@id": "http://example.com/Vertices",

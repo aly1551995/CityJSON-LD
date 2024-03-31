@@ -1,6 +1,6 @@
 import json
-from scale import Scale
-from translate import Translate
+from Transform.scale import Scale
+from Transform.translate import Translate
 
 
 class Transform:
@@ -38,4 +38,4 @@ class Transform:
             "cj:hasScale": scale_dict,
             "cj:hasTranslate": translate_dict
         }
-        return json.dumps(data, ensure_ascii=False)
+        return data

@@ -1,32 +1,20 @@
 import json
-from typing import Union, List
-from geographicalExtent import GeographicalExtent
-from pointOfContact import PointOfContact
+from Metadata.geographicalExtent import GeographicalExtent
+from Metadata.pointOfContact import PointOfContact
 
 
 class Metadata:
 
     def __init__(self, geographical_extent=None, identifier=None, point_of_contact=None,
                  reference_date=None, reference_system=None, title=None):
-        self.geographical_extent = self.to_geographical_extent(
+
+        self.geographical_extent = GeographicalExtent.to_geographical_extent(
             geographical_extent)
         self.identifier = identifier
         self.point_of_contact = self.to_point_of_contact(point_of_contact)
         self.reference_date = reference_date
         self.reference_system = reference_system
         self.title = title
-
-    def to_geographical_extent(self, geographical_extent):
-        if isinstance(geographical_extent, list):
-            if len(geographical_extent) == 6:
-                min_x, min_y, min_z, max_x, max_y, max_z = geographical_extent
-                return GeographicalExtent(min_x, min_y, min_z, max_x, max_y, max_z)
-            else:
-                print("Geographical Extent should be a list of 6 floats")
-        elif not geographical_extent:
-            return geographical_extent
-        else:
-            print("Geographical Extent should be either a GeographicalExtent object or a list of 6 floats or None")
 
     def to_point_of_contact(self, point_of_contact):
         if isinstance(point_of_contact, dict):
@@ -59,4 +47,4 @@ class Metadata:
         # Filter out None values
         filtered_data = {key: value for key,
                          value in data.items() if value is not None}
-        return json.dumps(filtered_data, ensure_ascii=False)
+        return filtered_data

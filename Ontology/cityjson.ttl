@@ -25,7 +25,8 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasChildren
 :hasChildren rdf:type owl:ObjectProperty ;
-             rdfs:range :Children .
+             rdfs:domain :Cityobject ;
+             rdfs:range :SecondLevelCityObject .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasCityObjects
@@ -117,37 +118,37 @@
 ###  https://www.cityjson.org/ont/cityjson.ttl#maxX
 :maxX rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#maxY
 :maxY rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#maxZ
 :maxZ rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#minX
 :minX rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#minY
 :minY rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#minZ
 :minZ rdf:type owl:DatatypeProperty ;
       rdfs:domain :GeographicalExtent ;
-      rdfs:range xsd:decimal .
+      rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#organization
@@ -188,19 +189,19 @@
 ###  https://www.cityjson.org/ont/cityjson.ttl#scaleX
 :scaleX rdf:type owl:DatatypeProperty ;
         rdfs:domain :Scale ;
-        rdfs:range xsd:decimal .
+        rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#scaleY
 :scaleY rdf:type owl:DatatypeProperty ;
         rdfs:domain :Scale ;
-        rdfs:range xsd:decimal .
+        rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#scaleZ
 :scaleZ rdf:type owl:DatatypeProperty ;
         rdfs:domain :Scale ;
-        rdfs:range xsd:decimal .
+        rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#title
@@ -212,20 +213,20 @@
 ###  https://www.cityjson.org/ont/cityjson.ttl#translateX
 :translateX rdf:type owl:DatatypeProperty ;
             rdfs:domain :Translate ;
-            rdfs:range xsd:decimal .
+            rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#translateY
 :translateY rdf:type owl:DatatypeProperty ;
             rdfs:domain :Translate ;
-            rdfs:range xsd:decimal .
+            rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#translateZ
 :translateZ rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain :Translate ;
-            rdfs:range xsd:decimal .
+            rdfs:range xsd:float .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#type
@@ -398,14 +399,6 @@ rdf:List rdf:type owl:Class .
               rdfs:subClassOf :BuildingSecondLevelObjects ;
               rdfs:isDefinedBy :BuildingUnit ;
               rdfs:label "Building Unit"@en .
-
-
-###  https://www.cityjson.org/ont/cityjson.ttl#Children
-:Children rdf:type owl:Class ;
-          rdfs:subClassOf rdf:List ;
-          rdfs:comment "A City Object (1st or 2nd-level) may have one member with the name \"children\". The value is an array of the IDs (of type string) of the City Object’s children. The array references only the City Object’s direct children (2nd-level) but not the grandchildren. The order of the children in the array is not relevant."@en ;
-          rdfs:isDefinedBy :Children ;
-          rdfs:label "Children"@en .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#CityFurniture
@@ -687,5 +680,3 @@ rdf:List rdf:type owl:Class .
           rdfs:label "Waterway"@en ;
           rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc39> ,
                        <https://www.cityjson.org/specs/2.0.0/#transportation> .
-
-

@@ -15,15 +15,15 @@ class Translate:
             "@type": "cj:Translate",
             "cj:translateX": {
                 "@value": self.x,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             },
             "cj:translateY": {
                 "@value": self.y,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             },
             "cj:translateZ": {
                 "@value": self.z,
-                "@type": "xsd:decimal"
+                "@type": "xsd:float"
             }
         }
         return json.dumps(data, ensure_ascii=False)
