@@ -1,11 +1,12 @@
 import argparse
 import json
 import os
-import sys
 from cjio import cityjson
 from cjvalpy import cjvalpy
+import pyshacl
 from Cityobjects.firstLevelCityObject import FirstLevelCityObject
 from Cityobjects.SecondLevelCityObject import SecondLevelCityObject
+from Cityobjects.geometry import Geometry
 from Vertices.vertices import Vertices
 from Metadata.metadata import Metadata
 from Transform.transform import Transform
@@ -22,6 +23,8 @@ def main(input_file_path, output_file_path):
         output_folder = os.path.join(os.path.dirname(__file__), 'output')
         os.makedirs(output_folder, exist_ok=True)
         output_file_path = os.path.join(output_folder, output_file_path)
+
+    cityjson_shacl_shapefile = os.path.join(os.path.dirname(__file__), 'SHACL', 'cityjsonShapes.ttl')
 
     with open(input_file_path) as file:  # Open the provided cityjson file
         file_content_json = json.load(file)  # Read the file as a Python dict
@@ -97,9 +100,11 @@ def main(input_file_path, output_file_path):
                         cityobject, 'attributes') else None
                     children = cityobject.children if hasattr(
                         cityobject, 'children') else None
+                    geometry = file_content_json['CityObjects'][cityobject_key]['geometry'][0]
+                    cityobject_geometry = Geometry(geometry['type'], geometry['lod'], geometry['boundaries'], vertices, scale, translate)
                     if (cityobject.type in FirstLevelCityObject.type_values):
                         co = FirstLevelCityObject(
-                            cityobject_key, type, geographicalExtent, attributes, children)
+                            cityobject_key, type, cityobject_geometry, geographicalExtent, attributes, children)
                     else:
                         if hasattr(cityobject, 'parents'):
                             parents = cityobject.parents
@@ -107,16 +112,26 @@ def main(input_file_path, output_file_path):
                             raise AttributeError(
                                 "cityobject does not have 'parents' attribute")
                         co = SecondLevelCityObject(
-                            cityobject_key, type, parents, geographicalExtent, attributes, children)
+                            cityobject_key, type, parents, cityobject_geometry, geographicalExtent, attributes, children)
                     cityobject_arry.append(co)
                 cityjson_obj = CityJson(
                     version_value, transform_obj, vertices_obj, cityobject_arry, metadata_obj)
+                    
+                # Run validation
+                validation_result = pyshacl.validate(output_file_path, shacl_graph=cityjson_shacl_shapefile, ont_graph=None)
 
-                # Write JSON to file
-                with open(output_file_path, 'w', encoding='utf-8') as json_file:
-                    json.dump(cityjson_obj.to_json(), json_file, indent=4, ensure_ascii=False)
+                # Check results
+                conforms, results_graph, results_text = validation_result
 
-                print(f"JSON written to: {output_file_path}")
+                if conforms:
+                    # Write JSON to file
+                    with open(output_file_path, 'w', encoding='utf-8') as json_file:
+                        json.dump(cityjson_obj.to_json(), json_file, indent=4, ensure_ascii=False)
+                    print(f"JSON written to: {output_file_path}") 
+                else:
+                    print("Data does not conform to SHACL shapes. Validation errors:")
+                    print(results_text)
+                
 
         elif has_extension:
             print("This current version does not support cityjson files with extensions")

@@ -160,7 +160,7 @@ cj:VerticesShape
     ],
     [
         sh:path rdf:rest ;
-        sh:or ([sh:node cj:VerticesShape ;] 
+        sh:or ([sh:class cj:VerticesShape ;] 
                [ sh:node rdf:nil ;] ) ;
     ] .
 

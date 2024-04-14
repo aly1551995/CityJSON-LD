@@ -1,6 +1,7 @@
 import json
 from Metadata.geographicalExtent import GeographicalExtent
 from Cityobjects.firstLevelCityObject import FirstLevelCityObject
+from Cityobjects.geometry import Geometry
 
 
 class SecondLevelCityObject:
@@ -22,7 +23,7 @@ class SecondLevelCityObject:
                    "TunnelInstallation",
                    "TunnelPart"]
 
-    def __init__(self, id: str, type: str, parent: str, geographical_extent=None, attributes=None, children=None):
+    def __init__(self, id: str, type: str, parent: str, geometry: Geometry, geographical_extent=None, attributes=None, children=None):
         self.id = id
         if type in self.type_values:
             self.type = type
@@ -34,6 +35,7 @@ class SecondLevelCityObject:
             geographical_extent)
         self.attributes = json.dumps(attributes)
         self.children = children
+        self.geometry = geometry
 
     def to_json(self):
         geographical_extent_dict = json.loads(
@@ -49,7 +51,8 @@ class SecondLevelCityObject:
                 "@id": f'ex:{self.parent[0]}'
             },
             "cj:hasGeographicalExtent": geographical_extent_dict,
-            "cj:hasAttribute": attributes_dict
+            "cj:hasAttribute": attributes_dict,
+            "cj:hasGeometry": self.geometry.to_json()
         }
        # Add "cj:hasChildren" only if there are children
         if children_list:

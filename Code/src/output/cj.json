@@ -67,46 +67,19 @@
     },
     "cj:hasCityObjects": [
         {
-            "@id": "ex:id-1",
+            "@id": "ex:oneparcel",
             "@type": "cj:FirstLevelCityObject",
-            "cj:type": "Bridge",
-            "cj:hasAttribute": {
-                "function": "something"
-            },
-            "cj:hasChildren": [
-                {
-                    "@id": "ex:id-2"
-                }
-            ],
+            "cj:type": "LandUse",
+            "cj:hasAttribute": {},
             "cj:hasGeometry": {
                 "@type": "geo:Geometry",
-                "cj:type": "MultiPoint",
+                "cj:type": "MultiSurface",
                 "cj:lod": "1",
                 "geo:asWKT": {
-                  "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
-                  "@type": "geo:wktLiteral"
+                    "@value": "MULTIPOLYGON (((0.0 0.0, 0.0 1.0, 1.0 1.0, 1.0 0.0)),((0.0 0.0, 1.0 0.0, 1.0 1.0, 0.0 1.0)),((0.0 0.0, 1.0 0.0, 1.0 0.0, 0.0 0.0)))",
+                    "@type": "geo:wktLiteral"
                 }
-              }
-        },
-        {
-            "@id": "ex:id-2",
-            "@type": "cj:SecondLevelCityObject",
-            "cj:type": "BridgePart",
-            "cj:hasParent": {
-                "@id": "ex:id-1"
-            },
-            "cj:hasAttribute": {
-                "function": "something"
-            },
-            "cj:hasGeometry": {
-                "@type": "geo:Geometry",
-                "cj:type": "MultiPoint",
-                "cj:lod": "1",
-                "geo:asWKT": {
-                  "@value": "MULTIPOINT((10 40), (40 30), (20 20), (30 10))",
-                  "@type": "geo:wktLiteral"
-                }
-              }
+            }
         }
     ],
     "cj:hasTransform": {

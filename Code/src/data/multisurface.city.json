@@ -1,0 +1,124 @@
+{
+	"CityObjects": {
+		"oneparcel": {
+			"type": "LandUse",
+			"geometry": [
+				{
+					"type": "MultiSurface",
+					"lod": "1",
+					"boundaries": [
+						[
+							[
+								0,
+								3,
+								2,
+								1
+							]
+						],
+						[
+							[
+								4,
+								5,
+								6,
+								7
+							]
+						],
+						[
+							[
+								0,
+								1,
+								5,
+								4
+							]
+						]
+					]
+				}
+			]
+		}
+	},
+	"type": "CityJSON",
+	"version": "2.0",
+	"vertices": [
+		[
+			0,
+			0,
+			1000
+		],
+		[
+			1000,
+			0,
+			1000
+		],
+		[
+			1000,
+			1000,
+			1000
+		],
+		[
+			0,
+			1000,
+			1000
+		],
+		[
+			0,
+			0,
+			0
+		],
+		[
+			1000,
+			0,
+			0
+		],
+		[
+			1000,
+			1000,
+			0
+		],
+		[
+			0,
+			1000,
+			0
+		]
+	],
+	"metadata": {
+		"geographicalExtent": [
+			84710.1,
+			446846.0,
+			-5.3,
+			84757.1,
+			446944.0,
+			40.9
+		],
+		"identifier": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
+		"pointOfContact": {
+			"contactName": "3D geoinformation group, Delft University of Technology",
+			"contactType": "organization",
+			"role": "owner",
+			"phone": "+31-6666666666",
+			"emailAddress": "3dgeoinfo-bk@tudelft.nl",
+			"website": "https://3d.bk.tudelft.nl",
+			"address": {
+				"thoroughfareNumber": "134",
+				"thoroughfareName": "Julianalaan",
+				"locality": "Delft",
+				"postcode": "2628BL",
+				"country": "the Netherlands"
+			}
+		},
+		"referenceDate": "1977-02-28",
+		"referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/2355",
+		"title": "Buildings in LoD2.3 of Chibougamau, Québec"
+	},
+	"transform": {
+		"scale": [
+			0.001,
+			0.001,
+			0.001
+		],
+		"translate": [
+			0.0,
+			0.0,
+			0.0
+		]
+	}
+}
