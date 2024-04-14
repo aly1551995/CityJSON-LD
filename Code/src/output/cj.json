@@ -69,7 +69,6 @@
             "@id": "ex:oneparcel",
             "@type": "cj:FirstLevelCityObject",
             "cj:type": "LandUse",
-            "cj:hasAttribute": {},
             "cj:hasGeometry": {
                 "@type": "geo:Geometry",
                 "cj:type": "MultiSurface",

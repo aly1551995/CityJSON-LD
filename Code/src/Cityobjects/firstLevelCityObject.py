@@ -31,17 +31,23 @@ class FirstLevelCityObject:
                 f"type value must be one of {', '.join(self.type_values)}")
         self.geographical_extent = GeographicalExtent.to_geographical_extent(
             geographical_extent)
-        self.attributes = json.dumps(attributes)
+        self.attributes = attributes
         self.children = children
         self.geometry = geometry
-
 
     def to_json(self):
         geographical_extent_dict = json.loads(
             self.geographical_extent.to_json()) if self.geographical_extent else None
-        attributes_dict = json.loads(
-            self.attributes) if self.attributes else None
-        children_list = [{"@id": f'{self.alias}:{child}'} for child in self.children]
+        
+        # Check if self.attributes is None 
+        if not self.attributes:
+            # If self.attributes is None or an empty string, set attributes_dict to None
+            attributes_dict = None
+        else:
+            attributes_dict = self.attributes
+
+        children_list = [{"@id": f'{self.alias}:{child}'}
+                         for child in self.children]
         data = {
             "@id": f'{self.alias}:{self.id}',
             "@type": "cj:FirstLevelCityObject",
