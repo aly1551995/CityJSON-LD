@@ -23,7 +23,8 @@ class SecondLevelCityObject:
                    "TunnelInstallation",
                    "TunnelPart"]
 
-    def __init__(self, id: str, type: str, parent: str, geometry: Geometry, geographical_extent=None, attributes=None, children=None):
+    def __init__(self, alias: str, id: str, type: str, parent: str, geometry: Geometry, geographical_extent=None, attributes=None, children=None):
+        self.alias = alias
         self.id = id
         if type in self.type_values:
             self.type = type
@@ -42,13 +43,13 @@ class SecondLevelCityObject:
             self.geographical_extent.to_json()) if self.geographical_extent else None
         attributes_dict = json.loads(
             self.attributes) if self.attributes else None
-        children_list = [{"@id": f'ex:{child}'} for child in self.children]
+        children_list = [{"@id": f'{self.alias}:{child}'} for child in self.children]
         data = {
-            "@id": f'ex:{self.id}',
+            "@id": f'{self.alias}:{self.id}',
             "@type": "cj:SecondLevelCityObject",
             "cj:type": self.type,
             "cj:hasParent": {
-                "@id": f'ex:{self.parent[0]}'
+                "@id": f'{self.alias}:{self.parent[0]}'
             },
             "cj:hasGeographicalExtent": geographical_extent_dict,
             "cj:hasAttribute": attributes_dict,

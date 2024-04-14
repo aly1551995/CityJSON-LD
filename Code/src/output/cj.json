@@ -3,12 +3,11 @@
         "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
         "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
-        "sh": "http://www.w3.org/ns/shacl#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
         "geo": "http://www.opengis.net/ont/geosparql#",
         "ex": "http://example.com/"
     },
-    "@id": "http://example.com/Cityjson",
+    "@id": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
     "@type": "cj:Cityjson",
     "cj:type": "CityJSON",
     "cj:version": "2.0",

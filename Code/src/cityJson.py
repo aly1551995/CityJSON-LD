@@ -5,7 +5,10 @@ from Vertices.vertices import Vertices
 
 class CityJson:
 
-    def __init__(self, version: str, transform: Transform, vertices: Vertices, cityobjects, metadata=None):
+    def __init__(self, base_url: str, alias: str, id: str, version: str, transform: Transform, vertices: Vertices, cityobjects, metadata=None):
+        self.base_url = base_url
+        self.alias = alias
+        self.id = id
         self.type = "CityJSON"
         self.version = version
         self.transform = transform
@@ -20,12 +23,11 @@ class CityJson:
                 "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                 "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
                 "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
-                "sh": "http://www.w3.org/ns/shacl#",
                 "xsd": "http://www.w3.org/2001/XMLSchema#",
                 "geo": "http://www.opengis.net/ont/geosparql#",
-                "ex": "http://example.com/"
+                self.alias: self.base_url
             },
-            "@id": "http://example.com/Cityjson",
+            "@id": self.id,
             "@type": "cj:Cityjson",
             "cj:type": self.type,
             "cj:version": self.version,

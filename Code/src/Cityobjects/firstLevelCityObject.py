@@ -21,7 +21,8 @@ class FirstLevelCityObject:
                    "WaterBody",
                    "Waterway"]
 
-    def __init__(self, id: str, type: str, geometry: Geometry, geographical_extent=None, attributes=None, children=None):
+    def __init__(self, alias: str, id: str, type: str, geometry: Geometry, geographical_extent=None, attributes=None, children=None):
+        self.alias = alias
         self.id = id
         if type in self.type_values:
             self.type = type
@@ -34,14 +35,15 @@ class FirstLevelCityObject:
         self.children = children
         self.geometry = geometry
 
+
     def to_json(self):
         geographical_extent_dict = json.loads(
             self.geographical_extent.to_json()) if self.geographical_extent else None
         attributes_dict = json.loads(
             self.attributes) if self.attributes else None
-        children_list = [{"@id": f'ex:{child}'} for child in self.children]
+        children_list = [{"@id": f'{self.alias}:{child}'} for child in self.children]
         data = {
-            "@id": f'ex:{self.id}',
+            "@id": f'{self.alias}:{self.id}',
             "@type": "cj:FirstLevelCityObject",
             "cj:type": self.type,
             "cj:hasGeographicalExtent": geographical_extent_dict,
@@ -55,6 +57,6 @@ class FirstLevelCityObject:
 
         # Filter out None values
         filtered_data = {key: value for key,
-                        value in data.items() if value is not None}
+                         value in data.items() if value is not None}
 
         return filtered_data
