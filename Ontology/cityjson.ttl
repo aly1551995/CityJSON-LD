@@ -7,7 +7,7 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @base <https://www.cityjson.org/ont/cityjson.ttl#> .
 
-<https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology .
+<https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology.
 
 #################################################################
 #    Object Properties
@@ -23,6 +23,11 @@
               rdfs:domain :Cityobject .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#hasBoundingBox
+:hasBoundingBox rdf:type owl:ObjectProperty ;
+                rdfs:domain :Geometry .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasChildren
 :hasChildren rdf:type owl:ObjectProperty ;
              rdfs:domain :Cityobject ;
@@ -35,6 +40,18 @@
                 rdfs:range :Cityobject .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#hasExteriorBoundary
+:hasExteriorBoundary rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Surface ;
+                     rdfs:range :ExteriorBoundary .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasExteriorShell
+:hasExteriorShell rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Solid ;
+                  rdfs:range :ExteriorShell .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasGeographicalExtent
 :hasGeographicalExtent rdf:type owl:ObjectProperty ;
                        rdfs:range :GeographicalExtent .
@@ -43,13 +60,36 @@
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasGeometry
 :hasGeometry rdf:type owl:ObjectProperty ;
              rdfs:domain :Cityobject ;
-             rdfs:range geosparql:Geometry .
+             rdfs:range :Geometry .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasInteriorBoundary
+:hasInteriorBoundary rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Surface ;
+                     rdfs:range :InteriorBoundary .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasInteriorShell
+:hasInteriorShell rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Solid ;
+                  rdfs:range :InteriorShell .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasLineString
+:hasLineString rdf:type owl:ObjectProperty ;
+               rdfs:range :LineString .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasMetadata
 :hasMetadata rdf:type owl:ObjectProperty ;
              rdfs:domain :Cityjson ;
              rdfs:range :Metadata .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasPoint
+:hasPoint rdf:type owl:ObjectProperty ;
+          rdfs:domain :MultiPoint ;
+          rdfs:range :Point .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasPointOfContact
@@ -62,6 +102,16 @@
 :hasScale rdf:type owl:ObjectProperty ;
           rdfs:domain :Transform ;
           rdfs:range :Scale .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasSolid
+:hasSolid rdf:type owl:ObjectProperty ;
+          rdfs:range :Solid .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#hasSurface
+:hasSurface rdf:type owl:ObjectProperty ;
+            rdfs:range :Surface .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasTransform
@@ -85,6 +135,25 @@
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+geosparql:asWKT rdfs:domain :Geometry .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#boundaryX
+:boundaryX rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:float .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#boundaryY
+:boundaryY rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:float .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#boundaryZ
+:boundaryZ rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:float .
+
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#contactName
 :contactName rdf:type owl:DatatypeProperty ;
@@ -111,7 +180,7 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#lod
 :lod rdf:type owl:DatatypeProperty ;
-     rdfs:domain geosparql:Geometry ;
+     rdfs:domain :Geometry ;
      rdfs:range xsd:string .
 
 
@@ -271,14 +340,6 @@
 #    Classes
 #################################################################
 
-###  http://www.opengis.net/ont/geosparql#Geometry
-geosparql:Geometry rdf:type owl:Class ;
-                   rdfs:comment "CityJSON defines 3D geometric primitives, all of which are embedded in 3D space (and therefore their vertices have (x, y, z) coordinates). Similarly to the indexing mechanism of the format Wavefront OBJ, the geometry object does not store the locations of its vertices, but points instead to a vertex in a list (member \"vertices\" in the CityJSON Object). As is the case in CityGML, only linear and planar primitives are allowed; no curves or parametric surfaces can be represented."@en ;
-                   rdfs:isDefinedBy geosparql:Geometry ;
-                   rdfs:label "Geometry"@en ;
-                   rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
-
-
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
 rdf:List rdf:type owl:Class .
 
@@ -437,6 +498,42 @@ rdf:List rdf:type owl:Class .
             rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#the-different-city-objects> .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#CompositeSolid
+:CompositeSolid rdf:type owl:Class ;
+                rdfs:comment """A solid is formed of one exterior shell (which is a collection of surfaces) and potentially many interior shells (which are also collection of surfaces).
+The depth of the \"boundaries\" array is 5."""@en ;
+                rdfs:isDefinedBy :CompositeSolid ;
+                rdfs:label "CompositeSolid"@en ;
+                rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                             <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+                <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#solid> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#CompositeSurface
+:CompositeSurface rdf:type owl:Class ;
+                  rdfs:comment """A compositeSurface is a collection of surfaces that together form a surface (they cannot overlap or be disconnected).
+The depth of the \"boundaries\" array is 3."""@en ;
+                  rdfs:isDefinedBy :CompositeSolid ;
+                  rdfs:label "CompositeSurface"@en ;
+                  rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                               <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+                  <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#compositesurface> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#ExteriorBoundary
+:ExteriorBoundary rdf:type owl:Class ;
+                  rdfs:comment "A \"MultiSurface\", or a \"CompositeSurface\", has an array containing surfaces, each surface is modelled by an array of arrays, the first array being the exterior boundary of the surface, and the others the interior boundaries."@en ;
+                  rdfs:isDefinedBy :ExteriorBoundary ;
+                  rdfs:label "ExteriorBoundary"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#ExteriorShell
+:ExteriorShell rdf:type owl:Class ;
+               rdfs:comment "A \"Solid\" has an array of shells, the first shell being the exterior shell of the solid, and the others the interior shells. Each shell has an array of surfaces, modelled in the exact same way as a MultiSurface/CompositeSurface"@en ;
+               rdfs:isDefinedBy :ExteriorShell ;
+               rdfs:label "ExteriorShell"@en .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#FirstLevelCityObject
 :FirstLevelCityObject rdf:type owl:Class ;
                       rdfs:subClassOf :Cityobject ;
@@ -463,6 +560,28 @@ rdf:List rdf:type owl:Class .
                     rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geographicalextent-bbox> .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#Geometry
+:Geometry rdf:type owl:Class ;
+          rdfs:comment "CityJSON defines 3D geometric primitives, all of which are embedded in 3D space (and therefore their vertices have (x, y, z) coordinates). Similarly to the indexing mechanism of the format Wavefront OBJ, the geometry object does not store the locations of its vertices, but points instead to a vertex in a list (member \"vertices\" in the CityJSON Object). As is the case in CityGML, only linear and planar primitives are allowed; no curves or parametric surfaces can be represented."@en ;
+          rdfs:isDefinedBy :Geometry ;
+          rdfs:label "Geometry"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#InteriorBoundary
+:InteriorBoundary rdf:type owl:Class ;
+                  rdfs:comment "A \"MultiSurface\", or a \"CompositeSurface\", has an array containing surfaces, each surface is modelled by an array of arrays, the first array being the exterior boundary of the surface, and the others the interior boundaries."@en ;
+                  rdfs:isDefinedBy :InteriorBoundary ;
+                  rdfs:label "InteriorBoundary"@en .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#InteriorShell
+:InteriorShell rdf:type owl:Class ;
+               rdfs:comment "A \"Solid\" has an array of shells, the first shell being the exterior shell of the solid, and the others the interior shells. Each shell has an array of surfaces, modelled in the exact same way as a MultiSurface/CompositeSurface"@en ;
+               rdfs:isDefinedBy :InteriorShell ;
+               rdfs:label "InteriorShell"@en .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#LandUse
 :LandUse rdf:type owl:Class ;
          rdfs:subClassOf :FirstLevelCityObject ;
@@ -473,6 +592,14 @@ rdf:List rdf:type owl:Class .
                       <https://www.cityjson.org/specs/2.0.0/#landuse> .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#LineString
+:LineString rdf:type owl:Class ;
+            rdfs:comment "A \"MultiLineString\" has an array of arrays, each containing the indices of a LineString."@en ;
+            rdfs:isDefinedBy :LineString ;
+            rdfs:label "LineString"@en ;
+            <https://schema.org/affiliation> <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#Metadata
 :Metadata rdf:type owl:Class ;
           rdfs:comment "Defines the schema required for describing geographic information and services by means of metadata. It provides information about the identification, the extent, the quality, the spatial and temporal aspects, the content, the spatial reference, the portrayal, distribution, and other properties of digital geographic data and services."@en ;
@@ -480,6 +607,46 @@ rdf:List rdf:type owl:Class .
           rdfs:label "Metadata"@en ;
           rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#metadata> ,
                        <https://www.iso.org/standard/53798.html> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#MultiLineString
+:MultiLineString rdf:type owl:Class ;
+                 rdfs:comment "A \"MultiLineString\" has an array of arrays, each containing the indices of a LineString."@en ;
+                 rdfs:isDefinedBy :MultiLineString ;
+                 rdfs:label "MultiLineString"@en ;
+                 rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                              <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+                 <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#multilinestring> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#MultiPoint
+:MultiPoint rdf:type owl:Class ;
+            rdfs:comment "A \"MultiPoint\" has an array with the indices of the vertices; this array can be empty."@en ;
+            rdfs:isDefinedBy :MultiPoint ;
+            rdfs:label "MultPoint"@en ;
+            rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                         <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#multipoint> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#MultiSolid
+:MultiSolid rdf:type owl:Class ;
+            rdfs:comment "A \"MultiSolid\", or a \"CompositeSolid\", has an array containing solids"@en ;
+            rdfs:isDefinedBy :MultiSolid ;
+            rdfs:label "MultiSolid"@en ;
+            rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                         <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+            <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#multisolid> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#MultiSurface
+:MultiSurface rdf:type owl:Class ;
+              rdfs:comment "A \"MultiSurface\",  is  a collection of surfaces i.e: Polygons embedded in 3D space"@en ;
+              rdfs:isDefinedBy :MultiSurface ;
+              rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                           <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ,
+                           "MultiSurface"@en ;
+              <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#multisurface> .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#OtherConstruction
@@ -500,6 +667,14 @@ rdf:List rdf:type owl:Class .
             rdfs:label "Plant Cover"@en ;
             rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc40> ,
                          <https://www.cityjson.org/specs/2.0.0/#plantcover> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Point
+:Point rdf:type owl:Class ;
+       rdfs:comment "A \"MultiPoint\" has an array with the indices of the vertices(Point); this array can be empty."@en ;
+       rdfs:isDefinedBy :Point ;
+       rdfs:label "Point"@en ;
+       rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#PointOfContact
@@ -546,6 +721,17 @@ rdf:List rdf:type owl:Class .
                        rdfs:label "2nd-level City Object"@en .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#Solid
+:Solid rdf:type owl:Class ;
+       rdfs:comment """A solid is formed of one exterior shell (which is a collection of surfaces) and potentially many interior shells (which are also collection of surfaces).
+The depth of the \"boundaries\" array is 5."""@en ;
+       rdfs:isDefinedBy :Solid ;
+       rdfs:label "Solid"@en ;
+       rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#arrays-to-represent-boundaries> ,
+                    <https://www.cityjson.org/specs/2.0.0/#geometry-objects> ;
+       <http://www.w3.org/2004/02/skos/core#example> <https://www.cityjson.org/dev/geom-arrays/#solid> .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#SolitaryVegetationObject
 :SolitaryVegetationObject rdf:type owl:Class ;
                           rdfs:subClassOf :FirstLevelCityObject ;
@@ -554,6 +740,10 @@ rdf:List rdf:type owl:Class .
                           rdfs:label "Solitary Vegetation Object"@en ;
                           rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc40> ,
                                        <https://www.cityjson.org/specs/2.0.0/#solitaryvegetationobject> .
+
+
+###  https://www.cityjson.org/ont/cityjson.ttl#Surface
+:Surface rdf:type owl:Class .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#TINRelief
@@ -568,7 +758,7 @@ rdf:List rdf:type owl:Class .
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#Transform
 :Transform rdf:type owl:Class ;
-           rdfs:comment "A CityJSON object must therefore have one member \"transform\", whose values are 2 mandatory JSON objects, \"scale\" and \"translate\", both arrays with 3 values."@en ;
+           rdfs:comment "A CityJSON object must have one member \"transform\", whose values are 2 mandatory JSON objects, \"scale\" and \"translate\", both arrays with 3 values."@en ;
            rdfs:isDefinedBy :Transform ;
            rdfs:label "Transform"@en ;
            rdfs:seeAlso <https://github.com/topojson/topojson-specification/blob/master/README.md#212-transforms> ,

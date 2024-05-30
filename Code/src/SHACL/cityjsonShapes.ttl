@@ -5,6 +5,13 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
 #################################################################
 #    Cityjson Shape
 #################################################################
@@ -15,6 +22,7 @@ cj:CityjsonShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Cityjson
     ] ;
     sh:property [
         sh:path cj:type ;
@@ -69,6 +77,7 @@ cj:TransformShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Transform
     ] ;
     sh:property [
         sh:path cj:hasScale ;
@@ -93,6 +102,7 @@ cj:ScaleShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Scale ;
     ] ;
     sh:property [
         sh:path cj:scaleX ;
@@ -123,6 +133,7 @@ cj:TranslateShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Translate ;
     ] ;
     sh:property [
         sh:path cj:translateX ;
@@ -153,6 +164,7 @@ cj:VerticesShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        # sh:hasValue cj:Vertices
     ] ;
     sh:property [ 
         sh:path rdf:first ;
@@ -174,6 +186,7 @@ cj:VertexShape
   sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Vertex
     ] ;
   sh:property [
         sh:path cj:vertexX ;
@@ -195,103 +208,6 @@ cj:VertexShape
     ] .
 
 #################################################################
-#    Metadata Shape
-#################################################################
-
-cj:MetadataShape
-  a sh:NodeShape ;
-  sh:targetClass cj:Metadata ;
-  sh:closed true ;
-    sh:property [
-        sh:path rdf:type ;
-    ] ;
-  sh:property [
-        sh:path cj:hasGeographicalExtent ;
-        sh:node cj:GeographicalExtentShape ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-  sh:property [
-        sh:path cj:identifier ;
-        sh:datatype xsd:string ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-
-  sh:property [
-        sh:path cj:hasPointOfContact ;
-        sh:node cj:PointOfContactShape ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;    
-  sh:property [
-        sh:path cj:referenceDate ;
-        sh:datatype xsd:string ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-  sh:property [
-        sh:path cj:referenceSystem ;
-        sh:datatype xsd:string ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-  sh:property [
-        sh:path cj:title ;
-        sh:datatype xsd:string ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] .
-
-#################################################################
-#    GeographicalExtent Shape
-#################################################################
-
-cj:GeographicalExtentShape
-  a sh:NodeShape ;
-  sh:targetClass cj:GeographicalExtent ;
-  sh:closed true ;
-  sh:property [
-        sh:path rdf:type ;
-    ] ;
-  sh:property [
-        sh:path cj:minX ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-  sh:property [
-        sh:path cj:maxX ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path cj:minY ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path cj:maxY ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path cj:minZ ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path cj:maxZ ;
-        sh:datatype xsd:float ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] .
-
-#################################################################
 #    PointOfContact Shape
 #################################################################
 
@@ -300,6 +216,7 @@ cj:PointOfContactShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:PointOfContact;
     ] ;
     sh:targetClass cj:PointOfContact ;
     sh:property [
@@ -386,6 +303,7 @@ cj:FirstLevelCityObjectShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:FirstLevelCityObject
     ] ;
      sh:property [
         sh:path cj:type ;
@@ -445,6 +363,7 @@ cj:SecondLevelCityObjectShape
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:SecondLevelCityObject
     ] ;
     sh:property [
         sh:path cj:type ;
@@ -508,10 +427,11 @@ cj:SecondLevelCityObjectShape
 
 cj:GeometryShape 
   a sh:NodeShape ;
-    sh:targetClass geosparql:Geometry ; 
+    sh:targetClass cj:Geometry ; 
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
+        sh:hasValue cj:Geometry ;
     ] ;
     sh:property [
         sh:path cj:type ;
@@ -535,8 +455,280 @@ cj:GeometryShape
         sh:maxCount 1 ;
     ] ;
     sh:property [
+        sh:path cj:hasBoundingBox ;
+        sh:property [
+            sh:path rdf:type ;
+            sh:in (
+                cj:MultiPoint
+                cj:MultiLineString
+                cj:MultiSurface
+                cj:CompositeSurface
+                cj:Solid
+                cj:MultiSolid
+                cj:CompositeSolid
+            ) ;
+            sh:minCount 1 ;
+        ] ;
+        sh:or (
+            [ sh:node cj:MultiPointShape ; ]
+            [ sh:node cj:MultiLineStringShape ; ]
+            [ sh:node cj:MultiSurfaceShape ; ]
+            [ sh:node cj:SolidShape ; ]
+            [ sh:node cj:MultiSolidShape ; ]
+        ) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
         sh:path geosparql:asWKT ;
         sh:datatype geosparql:wktLiteral ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] .
+
+#################################################################
+#    MultiPoint Shape
+#################################################################
+
+cj:MultiPointShape
+  a sh:NodeShape ;
+  sh:targetClass cj:MultiPoint ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:MultiPoint ;
+  ] ;
+  sh:property [
+    sh:path cj:hasPoint  ;
+    sh:node cj:PointShape ;
+    sh:minCount 1 ; 
+  ] .
+
+#################################################################
+#    Point Shape
+#################################################################
+
+cj:PointShape
+  a sh:NodeShape ;
+  sh:targetClass cj:Point ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:Point ;
+  ] ;
+  sh:property [
+    sh:path cj:boundaryX ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path cj:boundaryY ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path cj:boundaryZ ;
+    sh:datatype xsd:float ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+#################################################################
+#    MultiLineString Shape
+#################################################################
+
+cj:MultiLineStringShape
+  a sh:NodeShape ;
+  sh:targetClass cj:MultiLineString ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:MultiLineString ;
+  ] ;
+  sh:property [
+    sh:path cj:hasLineString ;
+    sh:node cj:LineStringShape ;
+    sh:minCount 1 ; 
+  ] .
+
+#################################################################
+#    LineString Shape
+#################################################################
+
+cj:LineStringShape
+    a sh:NodeShape ;
+      sh:targetClass cj:LineString ; 
+      sh:closed true ;
+      sh:property [
+        sh:path rdf:type ;
+        sh:hasValue cj:LineString ;
+      ] ;
+      sh:property [
+        sh:path cj:hasPoint  ;
+        sh:node cj:PointShape ;
+        sh:minCount 1 ; 
+      ] .
+
+#################################################################
+#    MultiSurface Shape
+#################################################################
+
+cj:MultiSurfaceShape
+  a sh:NodeShape ;
+  sh:targetClass cj:MultiSurface ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+     sh:or (
+            [ sh:hasValue cj:MultiSurface  ; ]
+            [ sh:hasValue cj:CompositeSurface  ; ]
+        ) ;
+  ] ;
+  sh:property [
+    sh:path cj:hasSurface  ;
+    sh:node cj:SurfaceShape ;
+    sh:minCount 1 ; 
+  ] .
+
+
+#################################################################
+#    Surface Shape
+#################################################################
+
+cj:SurfaceShape
+    a sh:NodeShape ;
+      sh:targetClass cj:Surface ; 
+      sh:closed true ;
+      sh:property [
+        sh:path rdf:type ;
+        sh:hasValue cj:Surface ;
+      ] ;
+      sh:property [
+        sh:path cj:hasExteriorBoundary ;
+        sh:node cj:ExteriorBoundaryShape ;
+        sh:minCount 1 ; 
+      ] ;
+       sh:property [
+        sh:path cj:hasInteriorBoundary ;
+        sh:node cj:InteriorBoundaryShape ;
+        sh:minCount 0 ; 
+      ] .
+
+
+#################################################################
+#    ExteriorBoundary Shape
+#################################################################
+
+cj:ExteriorBoundaryShape
+  a sh:NodeShape ;
+  sh:targetClass cj:ExteriorBoundary ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:ExteriorBoundary ;
+  ] ;
+  sh:property [
+    sh:path cj:hasLineString ;
+    sh:class cj:LineString;
+    sh:minCount 1 ; 
+  ] .
+
+#################################################################
+#    InteriorBoundary Shape
+#################################################################
+
+cj:InteriorBoundaryShape
+  a sh:NodeShape ;
+  sh:targetClass cj:InteriorBoundary ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:InteriorBoundary ;
+  ] ;
+  sh:property [
+    sh:path cj:hasLineString ;
+    sh:class cj:LineString;
+    sh:minCount 0 ; 
+  ] .
+
+#################################################################
+#    Solid Shape
+#################################################################
+
+cj:SolidShape
+    a sh:NodeShape ;
+      sh:targetClass cj:Solid ; 
+      sh:closed true ;
+      sh:property [
+        sh:path rdf:type ;
+        sh:hasValue cj:Solid ;
+      ] ;
+      sh:property [
+        sh:path cj:hasExteriorShell ;
+        sh:node cj:ExteriorShellShape ;
+        sh:minCount 1 ; 
+      ] ;
+       sh:property [
+        sh:path cj:hasInteriorShell ;
+        sh:node cj:InteriorShellShape ;
+        sh:minCount 0 ; 
+      ] .
+
+#################################################################
+#    ExteriorShell Shape
+#################################################################
+
+cj:ExteriorShellShape
+  a sh:NodeShape ;
+  sh:targetClass cj:ExteriorShell ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:ExteriorShell ;
+  ] ;
+  sh:property [
+    sh:path cj:hasSurface ;
+    sh:class cj:Surface;
+    sh:minCount 1 ; 
+  ] .
+
+#################################################################
+#    InteriorShell Shape
+#################################################################
+
+cj:InteriorShellShape
+  a sh:NodeShape ;
+  sh:targetClass cj:InteriorShell ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue cj:InteriorShell ;
+  ] ;
+  sh:property [
+    sh:path cj:hasSurface ;
+    sh:class cj:Surface;
+    sh:minCount 0 ; 
+  ] .
+
+#################################################################
+#    MultiSolid Shape
+#################################################################
+
+cj:MultiSolidShape
+  a sh:NodeShape ;
+  sh:targetClass cj:MultiSolid ; 
+  sh:closed true ;
+  sh:property [
+    sh:path rdf:type ;
+     sh:or (
+            [ sh:hasValue cj:MultiSolid ; ]
+            [ sh:hasValue cj:CompositeSolid ; ]
+        ) ;
+  ] ;
+  sh:property [
+    sh:path cj:hasSolid  ;
+    sh:node cj:SolidShape ;
+    sh:minCount 1 ; 
+  ] .

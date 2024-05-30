@@ -7,75 +7,2348 @@
         "geo": "http://www.opengis.net/ont/geosparql#",
         "ex": "http://example.com/"
     },
-    "@id": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
+    "@id": "http://example.com/eaeceeaa-3f66-429a-b81d-bbc6140b8c1cclea",
     "@type": "cj:Cityjson",
     "cj:type": "CityJSON",
     "cj:version": "2.0",
     "cj:hasVertices": {
-        "@type": "cj:Vertices",
         "@list": [
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 0,
-                "cj:vertexY": 0,
-                "cj:vertexZ": 1000
+                "cj:vertexX": -245488,
+                "cj:vertexY": -378080,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 1000,
-                "cj:vertexY": 0,
-                "cj:vertexZ": 1000
+                "cj:vertexX": -250819,
+                "cj:vertexY": -379796,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 1000,
-                "cj:vertexY": 1000,
-                "cj:vertexZ": 1000
+                "cj:vertexX": -250926,
+                "cj:vertexY": -379462,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 0,
-                "cj:vertexY": 1000,
-                "cj:vertexZ": 1000
+                "cj:vertexX": -251545,
+                "cj:vertexY": -379662,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 0,
-                "cj:vertexY": 0,
-                "cj:vertexZ": 0
+                "cj:vertexX": -256296,
+                "cj:vertexY": -364582,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 1000,
-                "cj:vertexY": 0,
-                "cj:vertexZ": 0
+                "cj:vertexX": -241608,
+                "cj:vertexY": -359852,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 1000,
-                "cj:vertexY": 1000,
-                "cj:vertexZ": 0
+                "cj:vertexX": -244070,
+                "cj:vertexY": -352209,
+                "cj:vertexZ": -46579
             },
             {
                 "@type": "cj:Vertex",
-                "cj:vertexX": 0,
-                "cj:vertexY": 1000,
-                "cj:vertexZ": 0
+                "cj:vertexX": -244384,
+                "cj:vertexY": -352310,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -245874,
+                "cj:vertexY": -347684,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -245559,
+                "cj:vertexY": -347585,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -248024,
+                "cj:vertexY": -339930,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -262621,
+                "cj:vertexY": -344622,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -262580,
+                "cj:vertexY": -344751,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -262751,
+                "cj:vertexY": -344806,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -264794,
+                "cj:vertexY": -338478,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -278165,
+                "cj:vertexY": -342795,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -278204,
+                "cj:vertexY": -342671,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -281687,
+                "cj:vertexY": -343795,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -283983,
+                "cj:vertexY": -336687,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -270473,
+                "cj:vertexY": -332346,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -276886,
+                "cj:vertexY": -312559,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -303714,
+                "cj:vertexY": -321160,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -312670,
+                "cj:vertexY": -293420,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -550606,
+                "cj:vertexY": -370141,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -541693,
+                "cj:vertexY": -397864,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -541845,
+                "cj:vertexY": -397913,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -514825,
+                "cj:vertexY": -480623,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -495565,
+                "cj:vertexY": -540623,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -495386,
+                "cj:vertexY": -540581,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -483582,
+                "cj:vertexY": -589226,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -453025,
+                "cj:vertexY": -581913,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -458191,
+                "cj:vertexY": -561982,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -453635,
+                "cj:vertexY": -560983,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -452095,
+                "cj:vertexY": -566823,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -383795,
+                "cj:vertexY": -550113,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -392255,
+                "cj:vertexY": -516033,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -355785,
+                "cj:vertexY": -506463,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -368705,
+                "cj:vertexY": -466343,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -374169,
+                "cj:vertexY": -468102,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -380262,
+                "cj:vertexY": -449439,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -370275,
+                "cj:vertexY": -446183,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -369223,
+                "cj:vertexY": -449656,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -322106,
+                "cj:vertexY": -434882,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -322638,
+                "cj:vertexY": -433214,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -302925,
+                "cj:vertexY": -427033,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -303905,
+                "cj:vertexY": -424233,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -250185,
+                "cj:vertexY": -407233,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -250465,
+                "cj:vertexY": -406453,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -243895,
+                "cj:vertexY": -404243,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -243395,
+                "cj:vertexY": -405623,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -223555,
+                "cj:vertexY": -399033,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -225595,
+                "cj:vertexY": -392823,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -231265,
+                "cj:vertexY": -394663,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -232685,
+                "cj:vertexY": -390243,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -231275,
+                "cj:vertexY": -389773,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -236038,
+                "cj:vertexY": -375038,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -243042,
+                "cj:vertexY": -377292,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -243278,
+                "cj:vertexY": -376559,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -245724,
+                "cj:vertexY": -377347,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -453055,
+                "cj:vertexY": -581799,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -453375,
+                "cj:vertexY": -581875,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -453346,
+                "cj:vertexY": -581990,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -550468,
+                "cj:vertexY": -370572,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -313127,
+                "cj:vertexY": -294113,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -313287,
+                "cj:vertexY": -293619,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -277328,
+                "cj:vertexY": -312701,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -271066,
+                "cj:vertexY": -331876,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -270670,
+                "cj:vertexY": -331738,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -278682,
+                "cj:vertexY": -342825,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -278419,
+                "cj:vertexY": -343389,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -265947,
+                "cj:vertexY": -338850,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -264834,
+                "cj:vertexY": -338491,
+                "cj:vertexZ": -46579
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": -263066,
+                "cj:vertexY": -344035,
+                "cj:vertexZ": -46579
             }
         ]
     },
     "cj:hasCityObjects": [
         {
-            "@id": "ex:oneparcel",
+            "@id": "ex:NL.IMBAG.Pand.0503100000000010",
             "@type": "cj:FirstLevelCityObject",
-            "cj:type": "LandUse",
+            "cj:type": "Building",
+            "cj:hasAttribute": {
+                "b3_dak_type": "slanted",
+                "b3_h_dak_50p": 11.34,
+                "b3_h_dak_70p": 12.92,
+                "b3_h_dak_max": 18.700001,
+                "b3_h_dak_min": -0.24,
+                "b3_h_maaiveld": -0.41,
+                "b3_kas_warenhuis": false,
+                "b3_mutatie_ahn3_ahn4": false,
+                "b3_nodata_fractie_ahn3": 0.00351,
+                "b3_nodata_fractie_ahn4": 0.015247,
+                "b3_nodata_radius_ahn3": 1.70317,
+                "b3_nodata_radius_ahn4": 2.157261,
+                "b3_puntdichtheid_ahn3": 14.644053,
+                "b3_puntdichtheid_ahn4": 28.089306,
+                "b3_pw_bron": "AHN3",
+                "b3_pw_datum": 2014,
+                "b3_pw_selectie_reden": "_HIGHEST_YET_INSUFFICIENT_COVERAGE",
+                "b3_reconstructie_onvolledig": false,
+                "b3_rmse_lod12": 3.028891,
+                "b3_rmse_lod13": 1.326479,
+                "b3_rmse_lod22": 0.263475,
+                "b3_val3dity_lod12": "[]",
+                "b3_val3dity_lod13": "[]",
+                "b3_val3dity_lod22": "[303]",
+                "b3_volume_lod12": 618493.6875,
+                "b3_volume_lod13": 592709.0625,
+                "b3_volume_lod22": 563886.3125,
+                "begingeldigheid": "2013-01-01",
+                "documentdatum": "2013-01-01",
+                "documentnummer": "1273894",
+                "eindgeldigheid": null,
+                "eindregistratie": null,
+                "geconstateerd": false,
+                "identificatie": "NL.IMBAG.Pand.0503100000000010",
+                "oorspronkelijkbouwjaar": 1914,
+                "status": "Pand in gebruik",
+                "tijdstipeindregistratielv": null,
+                "tijdstipinactief": null,
+                "tijdstipinactieflv": null,
+                "tijdstipnietbaglv": null,
+                "tijdstipregistratie": "2013-01-07T07:45:49Z",
+                "tijdstipregistratielv": "2013-01-07T08:04:49Z",
+                "voorkomenidentificatie": 2
+            },
             "cj:hasGeometry": {
-                "@type": "geo:Geometry",
-                "cj:type": "MultiSurface",
-                "cj:lod": "1",
+                "@type": "cj:Geometry",
+                "cj:type": "Solid",
+                "cj:lod": "0",
                 "geo:asWKT": {
-                    "@value": "MULTIPOLYGON (((0.0 0.0, 0.0 1.0, 1.0 1.0, 1.0 0.0)),((0.0 0.0, 1.0 0.0, 1.0 1.0, 0.0 1.0)),((0.0 0.0, 1.0 0.0, 1.0 0.0, 0.0 0.0)))",
+                    "@value": "MULTIPOLYGON (((84842.902625 446016.17, 84837.571625 446014.454, 84837.464625 446014.788, 84836.845625 446014.588, 84832.094625 446029.668, 84846.782625 446034.398, 84844.320625 446042.041, 84844.006625 446041.94, 84842.516625 446046.566, 84842.831625 446046.665, 84840.366625 446054.32, 84825.769625 446049.628, 84825.810625 446049.499, 84825.639625 446049.444, 84823.596625 446055.772, 84810.225625 446051.455, 84810.186625 446051.579, 84806.703625 446050.455, 84804.407625 446057.563, 84817.917625 446061.904, 84811.504625 446081.691, 84784.676625 446073.09, 84775.720625 446100.83, 84537.784625 446024.109, 84546.697625 445996.386, 84546.545625 445996.337, 84573.565625 445913.627, 84592.825625 445853.627, 84593.004625 445853.669, 84604.808625 445805.024, 84635.365625 445812.337, 84630.199625 445832.268, 84634.755625 445833.267, 84636.295625 445827.427, 84704.595625 445844.137, 84696.135625 445878.217, 84732.605625 445887.787, 84719.685625 445927.907, 84714.221625 445926.148, 84708.128625 445944.811, 84718.115625 445948.067, 84719.167625 445944.594, 84766.284625 445959.368, 84765.752625 445961.036, 84785.465625 445967.217, 84784.485625 445970.017, 84838.205625 445987.017, 84837.925625 445987.797, 84844.495625 445990.007, 84844.995625 445988.627, 84864.835625 445995.217, 84862.795625 446001.427, 84857.125625 445999.587, 84855.705625 446004.007, 84857.115625 446004.477, 84852.352625 446019.212, 84845.348625 446016.958, 84845.112625 446017.691, 84842.666625 446016.903, 84842.902625 446016.17)))",
                     "@type": "geo:wktLiteral"
+                },
+                "cj:hasBoundingBox": {
+                    "@type": "cj:CompositeSolid",
+                    "cj:hasSolid": [
+                        {
+                            "@type": "cj:Solid",
+                            "cj:hasExteriorShell": {
+                                "@type": "cj:ExteriorShell",
+                                "cj:hasSurface": [
+                                    {
+                                        "@type": "cj:Surface",
+                                        "cj:hasExteriorBoundary": {
+                                            "@type": "cj:ExteriorBoundary",
+                                            "cj:hasLineString": [
+                                                {
+                                                    "@type": "cj:LineString",
+                                                    "cj:hasPoint": [
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.902625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.17,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.571625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.454,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.464625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.788,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84836.845625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.588,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84832.094625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446029.668,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84846.782625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446034.398,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.320625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446042.041,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.006625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446041.94,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.516625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446046.566,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.831625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446046.665,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84840.366625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446054.32,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.769625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.628,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.810625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.499,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.639625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.444,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84823.596625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446055.772,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84810.225625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446051.455,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84810.186625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446051.579,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84806.703625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446050.455,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84804.407625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446057.563,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84817.917625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446061.904,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84811.504625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446081.691,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84784.676625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446073.09,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84775.720625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446100.83,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84537.784625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446024.109,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84546.697625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445996.386,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84546.545625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445996.337,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84573.565625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445913.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84592.825625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445853.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84593.004625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445853.669,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84604.808625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445805.024,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84635.365625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445812.337,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84630.199625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445832.268,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84634.755625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445833.267,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84636.295625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445827.427,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84704.595625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445844.137,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84696.135625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445878.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84732.605625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445887.787,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84719.685625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445927.907,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84714.221625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445926.148,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84708.128625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445944.811,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84718.115625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445948.067,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84719.167625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445944.594,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84766.284625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445959.368,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84765.752625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445961.036,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84785.465625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445967.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84784.485625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445970.017,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84838.205625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445987.017,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.925625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445987.797,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.495625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445990.007,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.995625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445988.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84864.835625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445995.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84862.795625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446001.427,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84857.125625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445999.587,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84855.705625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446004.007,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84857.115625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446004.477,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84852.352625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446019.212,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84845.348625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.958,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84845.112625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446017.691,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.666625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.903,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.902625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.17,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "@type": "cj:Surface",
+                                        "cj:hasExteriorBoundary": {
+                                            "@type": "cj:ExteriorBoundary",
+                                            "cj:hasLineString": [
+                                                {
+                                                    "@type": "cj:LineString",
+                                                    "cj:hasPoint": [
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.902625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.17,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.571625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.454,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.464625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.788,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84836.845625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446014.588,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84832.094625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446029.668,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84846.782625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446034.398,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.320625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446042.041,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.006625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446041.94,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.516625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446046.566,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.831625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446046.665,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84840.366625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446054.32,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.769625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.628,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.810625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.499,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84825.639625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446049.444,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84823.596625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446055.772,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84810.225625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446051.455,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84810.186625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446051.579,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84806.703625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446050.455,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84804.407625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446057.563,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84817.917625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446061.904,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84811.504625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446081.691,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84784.676625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446073.09,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84775.720625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446100.83,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84537.784625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446024.109,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84546.697625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445996.386,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84546.545625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445996.337,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84573.565625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445913.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84592.825625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445853.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84593.004625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445853.669,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84604.808625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445805.024,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84635.365625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445812.337,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84630.199625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445832.268,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84634.755625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445833.267,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84636.295625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445827.427,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84704.595625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445844.137,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84696.135625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445878.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84732.605625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445887.787,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84719.685625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445927.907,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84714.221625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445926.148,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84708.128625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445944.811,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84718.115625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445948.067,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84719.167625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445944.594,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84766.284625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445959.368,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84765.752625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445961.036,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84785.465625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445967.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84784.485625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445970.017,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84838.205625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445987.017,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84837.925625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445987.797,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.495625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445990.007,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84844.995625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445988.627,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84864.835625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445995.217,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84862.795625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446001.427,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84857.125625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 445999.587,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84855.705625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446004.007,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84857.115625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446004.477,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84852.352625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446019.212,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84845.348625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.958,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84845.112625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446017.691,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.666625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.903,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        },
+                                                        {
+                                                            "@type": "cj:Point",
+                                                            "cj:boundaryX": {
+                                                                "@value": 84842.902625,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryY": {
+                                                                "@value": 446016.17,
+                                                                "@type": "xsd:float"
+                                                            },
+                                                            "cj:boundaryZ": {
+                                                                "@value": -0.40899800000000397,
+                                                                "@type": "xsd:float"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 }
             }
         }
@@ -100,15 +2373,15 @@
         "cj:hasTranslate": {
             "@type": "cj:Translate",
             "cj:translateX": {
-                "@value": 0.0,
+                "@value": 85088.390625,
                 "@type": "xsd:float"
             },
             "cj:translateY": {
-                "@value": 0.0,
+                "@value": 446394.25,
                 "@type": "xsd:float"
             },
             "cj:translateZ": {
-                "@value": 0.0,
+                "@value": 46.170002,
                 "@type": "xsd:float"
             }
         }
@@ -118,49 +2391,30 @@
         "cj:hasGeographicalExtent": {
             "@type": "cj:GeographicalExtent",
             "cj:minX": {
-                "@value": 84710.1,
+                "@value": 84501.554688,
                 "@type": "xsd:float"
             },
             "cj:maxX": {
-                "@value": -5.3,
+                "@value": 85675.234375,
                 "@type": "xsd:float"
             },
             "cj:minY": {
-                "@value": 446944.0,
+                "@value": 445805.03125,
                 "@type": "xsd:float"
             },
             "cj:maxY": {
-                "@value": 446846.0,
+                "@value": 446983.46875,
                 "@type": "xsd:float"
             },
             "cj:minZ": {
-                "@value": 84757.1,
+                "@value": -2.462002,
                 "@type": "xsd:float"
             },
             "cj:maxZ": {
-                "@value": 40.9,
+                "@value": 94.801003,
                 "@type": "xsd:float"
             }
         },
-        "cj:identifier": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
-        "cj:hasPointOfContact": {
-            "@type": "cj:PointOfContact",
-            "cj:contactName": "3D geoinformation group, Delft University of Technology",
-            "cj:emailAddress": "3dgeoinfo-bk@tudelft.nl",
-            "cj:role": "owner",
-            "cj:website": "https://3d.bk.tudelft.nl",
-            "cj:contactType": "organization",
-            "cj:phone": "+31-6666666666",
-            "cj:hasAddress": {
-                "thoroughfareNumber": "134",
-                "thoroughfareName": "Julianalaan",
-                "locality": "Delft",
-                "postcode": "2628BL",
-                "country": "the Netherlands"
-            }
-        },
-        "cj:referenceDate": "1977-02-28",
-        "cj:referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/2355",
-        "cj:title": "Buildings in LoD2.3 of Chibougamau, QuÃ©bec"
+        "cj:referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/7415"
     }
 }
