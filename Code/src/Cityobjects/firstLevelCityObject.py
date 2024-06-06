@@ -22,7 +22,7 @@ class FirstLevelCityObject:
                    "WaterBody",
                    "Waterway"]
 
-    def __init__(self, alias: str, id: str, type: str, geometry: Geometry, geographical_extent: Optional[GeographicalExtent] = None, attributes: Optional[Union[Dict[str, Any], str]] = None, children: Optional[List[str]] = None):
+    def __init__(self, alias: str, id: str, type: str, geometry: Optional[List[Geometry]], geographical_extent: Optional[GeographicalExtent] = None, attributes: Optional[Union[Dict[str, Any], str]] = None, children: Optional[List[str]] = None):
         """
         Initialize the FirstLevelCityObject with the given parameters.
 
@@ -39,11 +39,13 @@ class FirstLevelCityObject:
         if type in self.type_values:
             self.type = type
         else:
-            raise ValueError(f"type value must be one of {', '.join(self.type_values)}")
-        self.geographical_extent = GeographicalExtent.to_geographical_extent(geographical_extent)
+            raise ValueError(
+                f"type value must be one of {', '.join(self.type_values)}")
+        self.geographical_extent = GeographicalExtent.to_geographical_extent(
+            geographical_extent)
         self.attributes = attributes
         self.children = children
-        self.geometry = geometry
+        self.geometry = [geom.to_json() for geom in geometry]
 
     def to_json(self) -> Dict[str, Any]:
         """
@@ -51,7 +53,10 @@ class FirstLevelCityObject:
 
         :return: JSON-LD representation of the FirstLevelCityObject.
         """
-        geographical_extent_dict = json.loads(self.geographical_extent.to_json()) if self.geographical_extent else None
+
+        geometry = self.geometry if self.geometry else None
+        geographical_extent_dict = json.loads(
+            self.geographical_extent.to_json()) if self.geographical_extent else None
 
         # Check if self.attributes is None
         if not self.attributes:
@@ -62,14 +67,14 @@ class FirstLevelCityObject:
 
         children_list = [{"@id": f'{self.alias}:{child}'}
                          for child in self.children] if self.children else None
-                         
+
         data = {
             "@id": f'{self.alias}:{self.id}',
             "@type": "cj:FirstLevelCityObject",
             "cj:type": self.type,
             "cj:hasGeographicalExtent": geographical_extent_dict,
             "cj:hasAttribute": attributes_dict,
-            "cj:hasGeometry": self.geometry.to_json()
+            "cj:hasGeometry": geometry
         }
 
         # Add "cj:hasChildren" only if there are children

@@ -1,8 +1,6 @@
 import argparse
 import json
 import os
-import validators
-from urllib.parse import urlparse
 from cjio import cityjson
 from cjvalpy import cjvalpy
 import pyshacl
@@ -13,7 +11,7 @@ from Cityobjects.Geometry.geometry import Geometry
 from Vertices.vertices import Vertices
 from Metadata.metadata import Metadata
 from Transform.transform import Transform
-from cityJson import CityJson
+from cityJSON import CityJSON
 
 
 def extract_alias_from_base_url(url: str) -> str:
@@ -105,13 +103,17 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                 geographicalExtent = cityobject.geographicalExtent if hasattr(cityobject, 'geographicalExtent') else None
                 attributes = cityobject.attributes if hasattr(cityobject, 'attributes') else None
                 children = cityobject.children if hasattr(cityobject, 'children') else None
-                geometry = file_content_json['CityObjects'][cityobject_key]['geometry'][0]
-                cityobject_geometry = Geometry(
-                    geometry['type'], geometry['lod'], geometry['boundaries'], vertices, scale, translate)
-
+                if 'geometry' in file_content_json['CityObjects'][cityobject_key]:
+                    geometry = []
+                    for geom in file_content_json['CityObjects'][cityobject_key]['geometry']:
+                        cityobject_geometry = Geometry(
+                            geom['type'], geom['lod'], geom['boundaries'], vertices, scale, translate)
+                        geometry.append(cityobject_geometry)
+                else:
+                    geometry = None
                 if cityobject.type in FirstLevelCityObject.type_values:
                     co = FirstLevelCityObject(
-                        alias, cityobject_key, type, cityobject_geometry, geographicalExtent, attributes, children)
+                        alias, cityobject_key, type, geometry, geographicalExtent, attributes, children)
                 else:
                     parents = cityobject.parents if hasattr(cityobject, 'parents') else None
                     if not parents:
@@ -120,7 +122,7 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                         alias, cityobject_key, type, parents, cityobject_geometry, geographicalExtent, attributes, children)
                 cityobject_arry.append(co)
 
-            cityjson_obj = CityJson(
+            cityjson_obj = CityJSON(
                 base_url, alias, city_id, version_value, transform_obj, vertices_obj, cityobject_arry, metadata_obj)
 
             if enable_shacl:

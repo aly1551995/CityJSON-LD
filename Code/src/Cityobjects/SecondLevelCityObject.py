@@ -23,7 +23,7 @@ class SecondLevelCityObject:
                    "TunnelInstallation",
                    "TunnelPart"]
 
-    def __init__(self, alias: str, id: str, type: str, parent: str, geometry: Geometry, geographical_extent: Optional[GeographicalExtent] = None, attributes: Optional[Union[Dict[str, Any], str]] = None, children: Optional[List[str]] = None):
+    def __init__(self, alias: str, id: str, type: str, parent: str, geometry: Optional[List[Geometry]], geographical_extent: Optional[GeographicalExtent] = None, attributes: Optional[Union[Dict[str, Any], str]] = None, children: Optional[List[str]] = None):
         """
         Initialize the SecondLevelCityObject with the given parameters.
 
@@ -41,12 +41,14 @@ class SecondLevelCityObject:
         if type in self.type_values:
             self.type = type
         else:
-            raise ValueError(f"type value must be one of {', '.join(self.type_values)}")
+            raise ValueError(
+                f"type value must be one of {', '.join(self.type_values)}")
         self.parent = parent[0]
-        self.geographical_extent = GeographicalExtent.to_geographical_extent(geographical_extent)
+        self.geographical_extent = GeographicalExtent.to_geographical_extent(
+            geographical_extent)
         self.attributes = json.dumps(attributes) if attributes else None
         self.children = children
-        self.geometry = geometry
+        self.geometry = [geom.to_json() for geom in geometry]
 
     def to_json(self) -> Dict[str, Any]:
         """
@@ -54,10 +56,14 @@ class SecondLevelCityObject:
 
         :return: JSON-LD representation of the SecondLevelCityObject.
         """
-        geographical_extent_dict = json.loads(self.geographical_extent.to_json()) if self.geographical_extent else None
-        attributes_dict = json.loads(self.attributes) if self.attributes else None
-        children_list = [{"@id": f'{self.alias}:{child}'} for child in self.children] if self.children else None
-        
+        geometry = self.geometry if self.geometry else None
+        geographical_extent_dict = json.loads(
+            self.geographical_extent.to_json()) if self.geographical_extent else None
+        attributes_dict = json.loads(
+            self.attributes) if self.attributes else None
+        children_list = [{"@id": f'{self.alias}:{child}'}
+                         for child in self.children] if self.children else None
+
         data = {
             "@id": f'{self.alias}:{self.id}',
             "@type": "cj:SecondLevelCityObject",
@@ -67,7 +73,7 @@ class SecondLevelCityObject:
             },
             "cj:hasGeographicalExtent": geographical_extent_dict,
             "cj:hasAttribute": attributes_dict,
-            "cj:hasGeometry": self.geometry.to_json()
+            "cj:hasGeometry": geometry
         }
 
         # Add "cj:hasChildren" only if there are children
@@ -78,4 +84,3 @@ class SecondLevelCityObject:
         filtered_data = {key: value for key,
                          value in data.items() if value is not None}
         return filtered_data
-

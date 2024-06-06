@@ -23,15 +23,15 @@ class Scale:
         data = {
             "@type": "cj:Scale",
             "cj:scaleX": {
-                "@value": self.x,
+                "@value": float(self.x),
                 "@type": "xsd:float"
             },
             "cj:scaleY": {
-                "@value": self.y,
+                "@value": float(self.y),
                 "@type": "xsd:float"
             },
             "cj:scaleZ": {
-                "@value": self.z,
+                "@value": float(self.z),
                 "@type": "xsd:float"
             }
         }

@@ -1,11 +1,16 @@
-from Cityobjects.Geometry.multiPoint import MultiPoint
-from Cityobjects.Geometry.multiLineString import MultiLineString
-from Cityobjects.Geometry.multiSurface import MultiSurface
+from typing import Any, Dict, List, Tuple
+from shapely.geometry import Polygon, MultiPoint, MultiLineString, MultiPolygon
+from Cityobjects.Geometry.multiPoint import MultiPoint as CjMultiPoint
+from Cityobjects.Geometry.multiLineString import MultiLineString as CjMultiLineString
+from Cityobjects.Geometry.multiCompositeSurface import MultiCompositeSurface as CjMultiCompositeSurface
+from Cityobjects.Geometry.solid import Solid as CjSolid
+from Cityobjects.Geometry.multiCompositeSolid import MultiCompositeSolid as CjMultiCompositeSolid
 
 
 class Geometry:
     """
-    A class to represent a cityJSON geometric object with various types such as MultiPoint, MultiLineString, MultiSurface, and CompositeSurface.
+    A class to represent a cityJSON geometric object with various types such as MultiPoint, MultiLineString, MultiSurface,
+      CompositeSurface, Solid, MultiSolid, CompositeSolid.
 
     Attributes:
         type (str): The type of the geometric object.
@@ -13,7 +18,7 @@ class Geometry:
         boundaries (str): The boundaries of the geometric object in CityJSON format.
     """
 
-    def __init__(self, type: str, lod: str, boundaries: str, vertices, scale, translate):
+    def __init__(self, type: str, lod: str, boundaries: List, vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]):
         self.type = type
         self.lod = lod
         self.boundaries = self.to_wkt(boundaries, vertices, scale, translate)
@@ -29,7 +34,7 @@ class Geometry:
         :return: Transformed vertex.
         """
         vertex = vertices[index]
-        return vertex[0] * scale[0] + translate[0], vertex[1] * scale[1] + translate[1], vertex[2] * scale[2] + translate[2]
+        return (vertex[0] * scale[0] + translate[0], vertex[1] * scale[1] + translate[1], vertex[2] * scale[2] + translate[2])
 
     def point_to_wkt(self, points, vertices, scale, translate):
         """
@@ -39,19 +44,15 @@ class Geometry:
         :param vertices: List of vertices.
         :param scale: The scale factors.
         :param translate: The translation factors.
-        :return: (Multi)Points in 2D WKT format and (Multi)Points in 3D coordinates.
+        :return: (Multi)Points in 2D WKT format and (Multi)Points in 3D coordinates in JSON-LD format.
         """
-        points_as_vertices_2d = []
-        points_as_vertices_3d = []
-        for point in points:
-            point_as_a_3D_vertex = self.get_real_vertex(
-                point, vertices, scale, translate)
-            point_as_a_2D_WKT_str = ' '.join(
-                map(str, point_as_a_3D_vertex[:2]))
-            points_as_vertices_2d.append(point_as_a_2D_WKT_str)
-            points_as_vertices_3d.append(point_as_a_3D_vertex)
-        points_list_to_string_2D = ', '.join(points_as_vertices_2d)
-        return points_list_to_string_2D, points_as_vertices_3d
+        points_as_vertices_3d = [self.get_real_vertex(
+            point, vertices, scale, translate) for point in points]
+        # Convert to 2D by ignoring the Z-coordinate
+        points_as_vertices_2d = [(pt[0], pt[1])
+                                 for pt in points_as_vertices_3d]
+        multi_point = MultiPoint(points_as_vertices_2d)
+        return multi_point.wkt, points_as_vertices_3d
 
     def linestring_to_wkt(self, lines, vertices, scale, translate):
         """
@@ -61,19 +62,17 @@ class Geometry:
         :param vertices: List of vertices.
         :param scale: The scale factors.
         :param translate: The translation factors.
-        :return: (Multi)Linestrings in WKT format and (Multi)LineStrings in 3D coordinates.
+        :return: (Multi)Linestrings in WKT format and (Multi)LineStrings in 3D coordinates in JSON-LD format.
         """
-        lines_as_vertices_2d = []
-        lines_as_vertices_3d = []
-        for lines in lines:
-            points_list_to_string_2D, points_as_vertices_3d = self.point_to_wkt(
-                lines, vertices, scale, translate)
-            lines_as_vertices_2d.append(f'({points_list_to_string_2D})')
-            lines_as_vertices_3d.append(points_as_vertices_3d)
-        linstrings_list_to_string = ', '.join(lines_as_vertices_2d)
-        return linstrings_list_to_string, lines_as_vertices_3d
+        lines_as_vertices_3d = [[self.get_real_vertex(
+            point, vertices, scale, translate) for point in line] for line in lines]
+        # Convert to 2D by ignoring the Z-coordinate
+        lines_as_vertices_2d = [[(pt[0], pt[1]) for pt in line]
+                                for line in lines_as_vertices_3d]
+        multi_line = MultiLineString(lines_as_vertices_2d)
+        return multi_line.wkt, lines_as_vertices_3d
 
-    def multi_surface_to_wkt(self, surfaces, vertices, scale, translate):
+    def multi_surface_to_wkt(self, surfaces: List[List[List[int]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[Tuple[float, float, float]]]]]:
         """
         Convert multi-surfaces to WKT format.
 
@@ -81,33 +80,114 @@ class Geometry:
         :param vertices: List of vertices.
         :param scale: The scale factors.
         :param translate: The translation factors.
-        :return: MultiSurfaces in WKT format and MultiSurfaces in 3D coordinates.
+        :return: MultiSurfaces in WKT format and MultiSurfaces in 3D coordinates in JSON-LD format.
         """
-        surfaces_as_vertices_2d = []
         surfaces_as_vertices_3d = []
+        polygons = []
+
         for surface in surfaces:
-            lines_as_vertices_3d = []
-            exterior_ring = surface[0]
-            exterior_ring.append(exterior_ring[0])
-            interior_rings = surface[1:] if len(surface) > 1 else []
-            wkt_surface = "(("
-            points_list_to_string_2d, points_as_vertices_3d = self.point_to_wkt(
-                exterior_ring, vertices, scale, translate)
-            lines_as_vertices_3d.append(points_as_vertices_3d)
-            wkt_surface += points_list_to_string_2d
-            wkt_surface += ")"
+            exterior_ring = [self.get_real_vertex(
+                idx, vertices, scale, translate) for idx in surface[0]]
+            interior_rings = [[self.get_real_vertex(
+                idx, vertices, scale, translate) for idx in ring] for ring in surface[1:]]
+
+            # Ensure the rings are closed
+            if exterior_ring[0] != exterior_ring[-1]:
+                exterior_ring.append(exterior_ring[0])
             for ring in interior_rings:
-                wkt_surface += ", ("
-                ring.append(ring[0])
-                points_list_to_string_2d, points_as_vertices_3d = self.point_to_wkt(
-                    ring, vertices, scale, translate)
-                lines_as_vertices_3d.append(points_as_vertices_3d)
-                wkt_surface += points_list_to_string_2d
-                wkt_surface += ")"
-            wkt_surface += ")"
-            surfaces_as_vertices_2d.append(wkt_surface)
-            surfaces_as_vertices_3d.append([lines_as_vertices_3d])
-        return surfaces_as_vertices_2d, surfaces_as_vertices_3d
+                if ring[0] != ring[-1]:
+                    ring.append(ring[0])
+
+            # Convert to 2D by ignoring the Z-coordinate
+            exterior_ring_2d = [(pt[0], pt[1]) for pt in exterior_ring]
+            interior_rings_2d = [[(pt[0], pt[1]) for pt in ring]
+                                 for ring in interior_rings]
+
+            polygon = Polygon(exterior_ring_2d, interior_rings_2d)
+            polygons.append(polygon)
+            surfaces_as_vertices_3d.append([exterior_ring] + interior_rings)
+
+        multi_polygon = MultiPolygon(polygons)
+        return multi_polygon.wkt, surfaces_as_vertices_3d
+
+    def solid_to_wkt(self, solid: List[List[List[List[int]]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[Tuple[float, float, float]]]]]:
+        """
+        Convert an array of multisurfaces (3D solid) to 2D WKT format by projection.
+
+        :param solid: Array of multisurfaces.
+        :param vertices: List of vertices.
+        :param scale: The scale factors.
+        :param translate: The translation factors.
+        :return: Solids in WKT format and Solids in 3D coordinates in JSON-LD format.
+        """
+        all_polygons = []
+        all_shells_3d = []
+
+        for shell in solid:
+            shell_3d = []
+            for surface in shell:
+                surface_3d = []
+                for boundary in surface:
+                    surface_3d.append([self.get_real_vertex(
+                        idx, vertices, scale, translate) for idx in boundary])
+                shell_3d.append(surface_3d)
+            all_shells_3d.append(shell_3d)
+
+            for surface in shell_3d:
+                for boundary in surface:
+                    if len(boundary) >= 3:
+                        polygon = Polygon([(pt[0], pt[1]) for pt in boundary]).convex_hull
+                        # polygon = Polygon([(pt[0], pt[1]) for pt in boundary])
+                        # if polygon.is_valid and not polygon.is_empty:
+                        if polygon.is_valid and not polygon.is_empty and isinstance(polygon, Polygon):
+                            all_polygons.append(polygon)
+
+        # multipolygon = MultiPolygon(all_polygons).convex_hull
+        multipolygon = MultiPolygon(all_polygons)
+        return multipolygon.wkt, all_shells_3d
+
+    def multi_solid_to_wkt(self, multi_solid: List[List[List[List[List[int]]]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[List[Tuple[float, float, float]]]]]]:
+        """
+        Convert an array of multi-solids to 2D WKT format by projection.
+
+        :param multi_solid: Array of multi-solids.
+        :param vertices: List of vertices.
+        :param scale: The scale factors.
+        :param translate: The translation factors.
+        :return: MultiSolids in WKT format and MultiSolids in 3D coordinates in JSON-LD format.
+        """
+        all_multipolygons = []
+        all_solids_3d = []
+
+        for solid in multi_solid:
+            solid_3d = []
+            for shell in solid:
+                shell_3d = []
+                for surface in shell:
+                    surface_3d = []
+                    for boundary in surface:
+                        surface_3d.append([self.get_real_vertex(
+                            idx, vertices, scale, translate) for idx in boundary])
+                    shell_3d.append(surface_3d)
+                solid_3d.append(shell_3d)
+            all_solids_3d.append(solid_3d)
+
+            polygons = []
+            for shell in solid_3d:
+                for surface in shell:
+                    for boundary in surface:
+                        if len(boundary) >= 3:
+                            polygon = Polygon([(pt[0], pt[1])
+                                              for pt in boundary])
+                            if polygon.is_valid and not polygon.is_empty:
+                                polygons.append(polygon)
+
+            if polygons:
+                multipolygon = MultiPolygon(polygons)
+                all_multipolygons.append(multipolygon)
+
+        geometry_collection = MultiPolygon(all_multipolygons)
+        return geometry_collection.wkt, all_solids_3d
 
     def to_wkt(self, boundaries, vertices, scale, translate):
         """
@@ -120,25 +200,37 @@ class Geometry:
         :return: Boundaries in WKT format.
         """
         if self.type == "MultiPoint":
-            points_list_to_string_2d, points_list_3d = self.point_to_wkt(
+            multi_point_wkt, multi_point_3d = self.point_to_wkt(
                 boundaries, vertices, scale, translate)
-            self.boundingBox = MultiPoint(points_list_3d)
-            return "MULTIPOINT ({0})".format(points_list_to_string_2d)
+            self.boundingBox = CjMultiPoint(multi_point_3d)
+            return multi_point_wkt
 
         elif self.type == "MultiLineString":
-            lines_list_to_string_2d, lines_list_3d = self.linestring_to_wkt(
+            multi_linestring_wkt, multi_linestring_3d = self.linestring_to_wkt(
                 boundaries, vertices, scale, translate)
-            self.boundingBox = MultiLineString(lines_list_3d)
-            return "MULTILINESTRING ({0})".format(lines_list_to_string_2d)
+            self.boundingBox = CjMultiLineString(multi_linestring_3d)
+            return multi_linestring_wkt
 
         elif self.type in ["MultiSurface", "CompositeSurface"]:
-            multi_composite_surface_list_to_string_2d, multi_composite_surface_list_3d = self.multi_surface_to_wkt(
+            multi_surface_composite_wkt, multi_surface_composite_3d = self.multi_surface_to_wkt(
                 boundaries, vertices, scale, translate)
-            self.boundingBox = MultiSurface(
-                multi_composite_surface_list_3d, self.type)
-            return "MULTIPOLYGON ({0})".format(multi_composite_surface_list_to_string_2d).replace("[", "").replace("]", "").replace("'", "")
+            self.boundingBox = CjMultiCompositeSurface(
+                multi_surface_composite_3d, self.type)
+            return multi_surface_composite_wkt
 
-    def to_json(self):
+        elif self.type == "Solid":
+            solid_wkt, solid_3d = self.solid_to_wkt(
+                boundaries, vertices, scale, translate)
+            self.boundingBox = CjSolid(solid_3d)
+            return solid_wkt
+
+        elif self.type in ["MultiSolid", "CompositeSolid"]:
+            multi_composite_solid_wkt, multi_composite_solid_3d = self.multi_solid_to_wkt(
+                boundaries, vertices, scale, translate)
+            self.boundingBox = CjMultiCompositeSolid(multi_composite_solid_3d)
+            return multi_composite_solid_wkt
+
+    def to_json(self) -> Dict[str, Any]:
         """
         Convert the CityJSON Geometry object to a JSON-LD representation.
 
@@ -148,12 +240,11 @@ class Geometry:
             "@type": "cj:Geometry",
             "cj:type": self.type,
             "cj:lod": self.lod,
-            "geo:asWKT": {
+            "geosparql:asWKT": {
                 "@value": self.boundaries,
-                "@type": "geo:wktLiteral"
+                "@type": "geosparql:wktLiteral"
             },
             "cj:hasBoundingBox": self.boundingBox.to_json()
         }
 
-        # return data
         return data

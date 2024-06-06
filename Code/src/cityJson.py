@@ -4,7 +4,7 @@ from Transform.transform import Transform
 from Vertices.vertices import Vertices
 from Metadata.metadata import Metadata
 
-class CityJson:
+class CityJSON:
     def __init__(self, base_url: str, alias: str, id: str, version: str, transform: Transform, vertices: Vertices, cityobjects: List[Any], metadata: Optional[Metadata] = None):
         """
         Initialize the CityJson object with the given parameters.
@@ -56,11 +56,11 @@ class CityJson:
                 "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
                 "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
                 "xsd": "http://www.w3.org/2001/XMLSchema#",
-                "geo": "http://www.opengis.net/ont/geosparql#",
+                "geosparql": "http://www.opengis.net/ont/geosparql#",
                 self.alias: self.base_url
             },
             "@id": self.id,
-            "@type": "cj:Cityjson",
+            "@type": "cj:CityJSON",
             "cj:type": self.type,
             "cj:version": self.version,
             "cj:hasVertices": self.vertices.to_json(),

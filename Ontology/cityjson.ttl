@@ -7,7 +7,10 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @base <https://www.cityjson.org/ont/cityjson.ttl#> .
 
-<https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology.
+<https://www.cityjson.org/ont/cityjson.ttl#> rdf:type owl:Ontology .
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
 
 #################################################################
 #    Object Properties
@@ -36,7 +39,7 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasCityObjects
 :hasCityObjects rdf:type owl:ObjectProperty ;
-                rdfs:domain :Cityjson ;
+                rdfs:domain :CityJSON ;
                 rdfs:range :Cityobject .
 
 
@@ -82,7 +85,7 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasMetadata
 :hasMetadata rdf:type owl:ObjectProperty ;
-             rdfs:domain :Cityjson ;
+             rdfs:domain :CityJSON ;
              rdfs:range :Metadata .
 
 
@@ -116,7 +119,7 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasTransform
 :hasTransform rdf:type owl:ObjectProperty ;
-              rdfs:domain :Cityjson ;
+              rdfs:domain :CityJSON ;
               rdfs:range :Transform .
 
 
@@ -128,17 +131,13 @@
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#hasVertices
 :hasVertices rdf:type owl:ObjectProperty ;
-             rdfs:domain :Cityjson ;
+             rdfs:domain :CityJSON ;
              rdfs:range :Vertices .
 
 
 #################################################################
 #    Data properties
 #################################################################
-
-###  http://www.opengis.net/ont/geosparql#asWKT
-geosparql:asWKT rdfs:domain :Geometry .
-
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#boundaryX
 :boundaryX rdf:type owl:DatatypeProperty ;
@@ -305,7 +304,7 @@ geosparql:asWKT rdfs:domain :Geometry .
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#version
 :version rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Cityjson ;
+         rdfs:domain :CityJSON ;
          rdfs:range xsd:string .
 
 
@@ -472,6 +471,14 @@ rdf:List rdf:type owl:Class .
                             <https://www.cityjson.org/specs/2.0.0/#cityfurniture> .
 
 
+###  https://www.cityjson.org/ont/cityjson.ttl#CityJSON
+:CityJSON rdf:type owl:Class ;
+          rdfs:comment "A CityJSON represents one 3D city model of a given area, this model may contain features of different types, as defined in the CityGML data model."@en ;
+          rdfs:isDefinedBy :CityJSON ;
+          rdfs:label "CityJSON"@en ;
+          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#cityjson-object> .
+
+
 ###  https://www.cityjson.org/ont/cityjson.ttl#CityObjectGroup
 :CityObjectGroup rdf:type owl:Class ;
                  rdfs:subClassOf :FirstLevelCityObject ;
@@ -480,14 +487,6 @@ rdf:List rdf:type owl:Class .
                  rdfs:label "City Object Group"@en ;
                  rdfs:seeAlso <https://docs.ogc.org/is/20-010/20-010.html#toc33> ,
                               <https://www.cityjson.org/specs/2.0.0/#cityobjectgroup> .
-
-
-###  https://www.cityjson.org/ont/cityjson.ttl#Cityjson
-:Cityjson rdf:type owl:Class ;
-          rdfs:comment "A CityJSON represents one 3D city model of a given area, this model may contain features of different types, as defined in the CityGML data model."@en ;
-          rdfs:isDefinedBy :Cityjson ;
-          rdfs:label "CityJSON"@en ;
-          rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#cityjson-object> .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#Cityobject
@@ -597,7 +596,7 @@ The depth of the \"boundaries\" array is 3."""@en ;
             rdfs:comment "A \"MultiLineString\" has an array of arrays, each containing the indices of a LineString."@en ;
             rdfs:isDefinedBy :LineString ;
             rdfs:label "LineString"@en ;
-            <https://schema.org/affiliation> <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
+            rdfs:seeAlso <https://www.cityjson.org/specs/2.0.0/#geometry-objects> .
 
 
 ###  https://www.cityjson.org/ont/cityjson.ttl#Metadata

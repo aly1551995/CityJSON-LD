@@ -1,6 +1,7 @@
 import json
 from typing import Dict, Any
 
+
 class Translate:
     def __init__(self, x: float, y: float, z: float):
         """
@@ -23,17 +24,16 @@ class Translate:
         data = {
             "@type": "cj:Translate",
             "cj:translateX": {
-                "@value": self.x,
+                "@value": float(self.x),
                 "@type": "xsd:float"
             },
             "cj:translateY": {
-                "@value": self.y,
+                "@value": float(self.y),
                 "@type": "xsd:float"
             },
             "cj:translateZ": {
-                "@value": self.z,
+                "@value": float(self.z),
                 "@type": "xsd:float"
             }
         }
         return json.dumps(data, ensure_ascii=False)
-

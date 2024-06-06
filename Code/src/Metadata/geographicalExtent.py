@@ -1,6 +1,7 @@
 import json
 from typing import List, Optional, Union
 
+
 class GeographicalExtent:
     def __init__(self, min_x: float, max_x: float, min_y: float, max_y: float, min_z: float, max_z: float):
         """
@@ -33,11 +34,13 @@ class GeographicalExtent:
                 min_x, min_y, min_z, max_x, max_y, max_z = geographical_extent
                 return GeographicalExtent(min_x, max_x, min_y, max_y, min_z, max_z)
             else:
-                raise ValueError("Geographical Extent should be a list of 6 floats")
+                raise ValueError(
+                    "Geographical Extent should be a list of 6 floats")
         elif geographical_extent is None:
             return None
         else:
-            raise TypeError("Geographical Extent should be either a list of 6 floats or None")
+            raise TypeError(
+                "Geographical Extent should be either a list of 6 floats or None")
 
     def to_json(self) -> str:
         """
@@ -48,28 +51,28 @@ class GeographicalExtent:
         data = {
             "@type": "cj:GeographicalExtent",
             "cj:minX": {
-                "@value": self.min_x,
+                "@value": float(self.min_x),
                 "@type": "xsd:float"
             },
             "cj:maxX": {
-                "@value": self.max_x,
+                "@value": float(self.max_x),
                 "@type": "xsd:float"
             },
             "cj:minY": {
-                "@value": self.min_y,
+                "@value": float(self.min_y),
                 "@type": "xsd:float"
             },
             "cj:maxY": {
-                "@value": self.max_y,
+                "@value": float(self.max_y),
                 "@type": "xsd:float"
             },
             "cj:minZ": {
-                "@value": self.min_z,
+                "@value": float(self.min_z),
                 "@type": "xsd:float"
             },
             "cj:maxZ": {
-                "@value": self.max_z,
+                "@value": float(self.max_z),
                 "@type": "xsd:float"
-            }
+            },
         }
         return json.dumps(data, ensure_ascii=False)

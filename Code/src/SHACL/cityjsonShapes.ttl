@@ -5,24 +5,17 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix cj: <https://www.cityjson.org/ont/cityjson.ttl#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
-
 #################################################################
-#    Cityjson Shape
+#    CityJSON Shape
 #################################################################
 
-cj:CityjsonShape
+cj:CityJSONShape
     a sh:NodeShape ;
-    sh:targetClass cj:Cityjson;
+    sh:targetClass cj:CityJSON;
     sh:closed true ;
     sh:property [
         sh:path rdf:type ;
-        sh:hasValue cj:Cityjson
+        sh:hasValue cj:CityJSON
     ] ;
     sh:property [
         sh:path cj:type ;
@@ -349,8 +342,7 @@ cj:FirstLevelCityObjectShape
     sh:property [
     sh:path cj:hasGeometry ;
     sh:node cj:GeometryShape ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
+    sh:minCount 0 ;
     ] .
 
 #################################################################
@@ -417,8 +409,7 @@ cj:SecondLevelCityObjectShape
     sh:property [
         sh:path cj:hasGeometry ;
         sh:node cj:GeometryShape ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:minCount 0 ;
     ] .
 
 #################################################################

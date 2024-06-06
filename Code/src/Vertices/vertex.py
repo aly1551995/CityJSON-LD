@@ -1,5 +1,6 @@
 from typing import Any, Dict
 
+
 class Vertex:
     def __init__(self, x: int, y: int, z: int):
         """
@@ -21,8 +22,17 @@ class Vertex:
         """
         data = {
             "@type": "cj:Vertex",
-            "cj:vertexX": self.x,
-            "cj:vertexY": self.y,
-            "cj:vertexZ": self.z
+            "cj:vertexX": {
+                "@value": int(self.x),
+                "@type": "xsd:integer"
+            },
+           "cj:vertexY": {
+                "@value": int(self.y),
+                "@type": "xsd:integer"
+            },
+           "cj:vertexZ": {
+                "@value": int(self.z),
+                "@type": "xsd:integer"
+            },
         }
         return data
