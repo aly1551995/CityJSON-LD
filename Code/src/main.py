@@ -28,7 +28,23 @@ def extract_alias_from_base_url(url: str) -> str:
         raise ValueError("Invalid base URL")
 
 
-def main(input_file_path: str, output_file_path: str, base_url: str, city_id: str, enable_shacl: bool):
+def write_jsonld_to_file(path: str, citjson: object, formatted: bool):
+    """
+    Write the cityJSON object to file
+
+    :path: Path to save the cityJSON-LD to file.
+    :cityjson: The content to be saved to file.
+    :enable_format: Flag indicating whether the content to be saved as formatted or not.
+    """
+
+    with open(path, 'w', encoding='utf-8') as json_file:
+        if formatted:
+            json.dump(citjson.to_json(), json_file, indent=4, ensure_ascii=False)
+        else:
+            json.dump(citjson.to_json(), json_file, ensure_ascii=False)
+
+
+def main(input_file_path: str, output_file_path: str, base_url: str, city_id: str, enable_shacl: bool, formatted: bool):
     """
     Main function to process the CityJSON file and convert it to JSON-LD.
 
@@ -37,16 +53,19 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
     :param base_url: Base URL for the CityJSON file.
     :param city_id: Identifier for the CityJSON file.
     :param enable_shacl: Flag to enable SHACL validation.
+    :param formatted: Flag to enable formatting the output.
     """
     if not os.path.isabs(input_file_path):
-        input_file_path = os.path.join(os.path.dirname(__file__), 'data', input_file_path)
+        input_file_path = os.path.join(
+            os.path.dirname(__file__), 'data', input_file_path)
 
     if not os.path.isabs(output_file_path):
         output_folder = os.path.join(os.path.dirname(__file__), 'output')
         os.makedirs(output_folder, exist_ok=True)
         output_file_path = os.path.join(output_folder, output_file_path)
 
-    cityjson_shacl_shapefile = os.path.join(os.path.dirname(__file__), 'SHACL', 'cityjsonShapes.ttl')
+    cityjson_shacl_shapefile = os.path.join(
+        os.path.dirname(__file__), 'SHACL', 'cityjsonShapes.ttl')
 
     with open(input_file_path) as file:
         file_content_json = json.load(file)
@@ -100,9 +119,12 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
             for cityobject_key in cityobjects_keys:
                 cityobject = cityobjects[cityobject_key]
                 type = cityobject.type
-                geographicalExtent = cityobject.geographicalExtent if hasattr(cityobject, 'geographicalExtent') else None
-                attributes = cityobject.attributes if hasattr(cityobject, 'attributes') else None
-                children = cityobject.children if hasattr(cityobject, 'children') else None
+                geographicalExtent = cityobject.geographicalExtent if hasattr(
+                    cityobject, 'geographicalExtent') else None
+                attributes = cityobject.attributes if hasattr(
+                    cityobject, 'attributes') else None
+                children = cityobject.children if hasattr(
+                    cityobject, 'children') else None
                 if 'geometry' in file_content_json['CityObjects'][cityobject_key]:
                     geometry = []
                     for geom in file_content_json['CityObjects'][cityobject_key]['geometry']:
@@ -115,9 +137,11 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                     co = FirstLevelCityObject(
                         alias, cityobject_key, type, geometry, geographicalExtent, attributes, children)
                 else:
-                    parents = cityobject.parents if hasattr(cityobject, 'parents') else None
+                    parents = cityobject.parents if hasattr(
+                        cityobject, 'parents') else None
                     if not parents:
-                        raise AttributeError("cityobject does not have 'parents' attribute")
+                        raise AttributeError(
+                            "cityobject does not have 'parents' attribute")
                     co = SecondLevelCityObject(
                         alias, cityobject_key, type, parents, cityobject_geometry, geographicalExtent, attributes, children)
                 cityobject_arry.append(co)
@@ -126,7 +150,8 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                 base_url, alias, city_id, version_value, transform_obj, vertices_obj, cityobject_arry, metadata_obj)
 
             if enable_shacl:
-                data_graph_str = json.dumps(cityjson_obj.to_json(), indent=4, ensure_ascii=False)
+                data_graph_str = json.dumps(
+                    cityjson_obj.to_json(), indent=4, ensure_ascii=False)
                 validation_result = pyshacl.validate(
                     data_graph=data_graph_str,
                     shacl_graph=cityjson_shacl_shapefile,
@@ -138,24 +163,25 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                 conforms, results_graph, results_text = validation_result
 
                 if conforms:
-                    with open(output_file_path, 'w', encoding='utf-8') as json_file:
-                        json.dump(cityjson_obj.to_json(), json_file, indent=4, ensure_ascii=False)
+                    write_jsonld_to_file(output_file_path, cityjson_obj, formatted)
                     print(f"JSON written to: {output_file_path}")
                 else:
                     print("Data does not conform to SHACL shapes. Validation errors:")
                     print(results_text)
             else:
-                with open(output_file_path, 'w', encoding='utf-8') as json_file:
-                    json.dump(cityjson_obj.to_json(), json_file, indent=4, ensure_ascii=False)
+                write_jsonld_to_file(output_file_path, cityjson_obj, formatted)
                 print(f"JSON written to: {output_file_path}")
 
         else:
             if has_extension:
-                print("This current version does not support cityjson files with extensions")
+                print(
+                    "This current version does not support cityjson files with extensions")
             if has_appearance:
-                print("This current version does not support cityjson files with appearance")
+                print(
+                    "This current version does not support cityjson files with appearance")
             if has_geometry_templates:
-                print("This current version does not support cityjson files with geometry_templates")
+                print(
+                    "This current version does not support cityjson files with geometry_templates")
             if not valid_city_json_file:
                 print("The provided file is not a valid cityjson file")
 
@@ -173,7 +199,7 @@ if __name__ == "__main__":
         '-o', '--output-file', help='Output JSON file path relative or absolute. If relative, the file will be placed in the output folder inside the src folder. (required)', required=True)
     parser.add_argument(
         '-b', '--base-url', help='The base URL (required)', required=True)
-    
+
     id_group = parser.add_mutually_exclusive_group(required=True)
     id_group.add_argument(
         '-id', help='Give the ID of the supplied CityJSON file input')
@@ -185,6 +211,11 @@ if __name__ == "__main__":
         action='store_true',
         help='To enable pyshacl validation (Warning: could potentially take a significant amount of time with big files; not recommended by default, false)')
 
+    parser.add_argument(
+        '-f', '--formatted',
+        action='store_true',
+        help='To enable formatting/beautify the JSON-LD into a human-readable format; not recommended takes too much space by default, false)')
+
     args = parser.parse_args()
 
     if args.id:
@@ -193,11 +224,12 @@ if __name__ == "__main__":
         with open(args.id_path, 'r') as f:
             supplied_identifier_data = json.load(f)
         expression = parse("$.metadata.identifier")
-        matches = [match.value for match in expression.find(supplied_identifier_data)]
+        matches = [match.value for match in expression.find(
+            supplied_identifier_data)]
         if matches:
             city_id = matches[0]
             print("Identifier found:", city_id)
         else:
             parser.error("Identifier not found in the JSON file.")
 
-    main(args.input_file, args.output_file, args.base_url, city_id, args.enable_pyshacl)
+    main(args.input_file, args.output_file, args.base_url, city_id, args.enable_pyshacl, args.formatted)
