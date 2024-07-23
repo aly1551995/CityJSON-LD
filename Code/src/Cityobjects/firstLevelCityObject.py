@@ -45,7 +45,7 @@ class FirstLevelCityObject:
             geographical_extent)
         self.attributes = attributes
         self.children = children
-        self.geometry = [geom.to_json() for geom in geometry]
+        self.geometry = [geom.to_json() for geom in geometry] if geometry else None
 
     def to_json(self) -> Dict[str, Any]:
         """

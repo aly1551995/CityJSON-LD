@@ -1,5 +1,5 @@
 from typing import Any, Dict, List, Tuple
-from shapely.geometry import Polygon, MultiPoint, MultiLineString, MultiPolygon
+from shapely.geometry import Polygon, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection
 from Cityobjects.Geometry.multiPoint import MultiPoint as CjMultiPoint
 from Cityobjects.Geometry.multiLineString import MultiLineString as CjMultiLineString
 from Cityobjects.Geometry.multiCompositeSurface import MultiCompositeSurface as CjMultiCompositeSurface
@@ -156,7 +156,7 @@ class Geometry:
         :param translate: The translation factors.
         :return: MultiSolids in WKT format and MultiSolids in 3D coordinates in JSON-LD format.
         """
-        all_multipolygons = []
+        all_polygons = []
         all_solids_3d = []
 
         for solid in multi_solid:
@@ -172,22 +172,20 @@ class Geometry:
                 solid_3d.append(shell_3d)
             all_solids_3d.append(solid_3d)
 
-            polygons = []
             for shell in solid_3d:
                 for surface in shell:
                     for boundary in surface:
                         if len(boundary) >= 3:
                             polygon = Polygon([(pt[0], pt[1])
-                                              for pt in boundary])
+                                            for pt in boundary])
                             if polygon.is_valid and not polygon.is_empty:
-                                polygons.append(polygon)
+                                all_polygons.append(polygon)
 
-            if polygons:
-                multipolygon = MultiPolygon(polygons)
-                all_multipolygons.append(multipolygon)
+        if all_polygons:
+            multipolygon = MultiPolygon(all_polygons)  # Using all_polygons directly
+            return multipolygon.wkt, all_solids_3d
 
-        geometry_collection = MultiPolygon(all_multipolygons)
-        return geometry_collection.wkt, all_solids_3d
+        return None, all_solids_3d
 
     def to_wkt(self, boundaries, vertices, scale, translate):
         """
@@ -227,7 +225,7 @@ class Geometry:
         elif self.type in ["MultiSolid", "CompositeSolid"]:
             multi_composite_solid_wkt, multi_composite_solid_3d = self.multi_solid_to_wkt(
                 boundaries, vertices, scale, translate)
-            self.boundingBox = CjMultiCompositeSolid(multi_composite_solid_3d)
+            self.boundingBox = CjMultiCompositeSolid(multi_composite_solid_3d, self.type)
             return multi_composite_solid_wkt
 
     def to_json(self) -> Dict[str, Any]:

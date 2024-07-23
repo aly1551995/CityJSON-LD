@@ -143,7 +143,7 @@ def main(input_file_path: str, output_file_path: str, base_url: str, city_id: st
                         raise AttributeError(
                             "cityobject does not have 'parents' attribute")
                     co = SecondLevelCityObject(
-                        alias, cityobject_key, type, parents, cityobject_geometry, geographicalExtent, attributes, children)
+                        alias, cityobject_key, type, parents, geometry, geographicalExtent, attributes, children)
                 cityobject_arry.append(co)
 
             cityjson_obj = CityJSON(

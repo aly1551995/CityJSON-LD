@@ -37,13 +37,13 @@ class MultiCompositeSurface:
                                     "cj:boundaryX": {"@value": point[0], "@type": "xsd:float"},
                                     "cj:boundaryY": {"@value": point[1], "@type": "xsd:float"},
                                     "cj:boundaryZ": {"@value": point[2], "@type": "xsd:float"}
-                                } for point in surface
+                                } for point in line
                             ]
-                        }
+                        } for line in surface
                     ]
                 }
             }
 
-            data["cj:hasSurface"].append(surface_data)
+        data["cj:hasSurface"].append(surface_data)
 
         return data
