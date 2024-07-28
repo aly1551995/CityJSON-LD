@@ -1,136 +1,668 @@
-    {"@context":{
-        "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdfs":"http://www.w3.org/2000/01/rdf-schema#",
-        "cj":"https://www.cityjson.org/ont/cityjson.ttl#","xsd":"http://www.w3.org/2001/XMLSchema#",
-        "geosparql":"http://www.opengis.net/ont/geosparql#","ex":"http://example.com/"
-        },"@id":"http://example.com/eaeceeaa-3f66-429a-b81d-bbc6140b8c1cclea",
-        "@type":"cj:CityJSON", "cj:type":"CityJSON", "cj:version":"2.0",
-        "cj:hasVertices":{
-            "@list":[
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":0,"@type":"xsd:integer"},"cj:vertexY":{"@value":0,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":1000,"@type":"xsd:integer"}
+{
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "ex": "http://example.com/"
+    },
+    "@id": "http://example.com/eaeceeaa-3f66-429a-b81d-bbc6140b8c1cclea",
+    "@type": "cj:CityJSON",
+    "cj:type": "CityJSON",
+    "cj:version": "2.0",
+    "cj:hasVertices": {
+        "@list": [
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
                 },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":1000,"@type":"xsd:integer"},"cj:vertexY":{"@value":0,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":1000,"@type":"xsd:integer"}
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
                 },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":1000,"@type":"xsd:integer"},"cj:vertexY":{"@value":1000,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":1000,"@type":"xsd:integer"}
-                },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":0,"@type":"xsd:integer"},"cj:vertexY":{"@value":1000,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":1000,"@type":"xsd:integer"}
-                },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":0,"@type":"xsd:integer"},"cj:vertexY":{"@value":0,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":0,"@type":"xsd:integer"}
-                },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":1000,"@type":"xsd:integer"},"cj:vertexY":{"@value":0,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":0,"@type":"xsd:integer"}
-                },
-                {"@type":"cj:Vertex","cj:vertexX":{"@value":1000,"@type":"xsd:integer"},"cj:vertexY":{"@value":1000,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":0,"@type":"xsd:integer"}
-                },
-                {"@type":"cj:Vertex",
-                "cj:vertexX":{"@value":0,"@type":"xsd:integer"},"cj:vertexY":{"@value":1000,"@type":"xsd:integer"},
-                "cj:vertexZ":{"@value":0,"@type":"xsd:integer"}
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
                 }
-            ]},
-        "cj:hasCityObjects":[{
-            "@id":"ex:id-1", "@type":"cj:FirstLevelCityObject", "cj:type":"GenericCityObject", "cj:hasAttribute":{"function":"something"},
-            "cj:hasGeometry":[{
-                "@type":"cj:Geometry","cj:type":"Solid","cj:lod":"1",
-                "geosparql:asWKT":{"@value":"MULTIPOLYGON (((0 0, 1 0, 1 1, 0 1, 0 0)), ((0 1, 1 1, 1 0, 0 0, 0 1)))","@type":"geosparql:wktLiteral"},
-                "cj:hasBoundingBox":{"@type":"cj:Solid"," cj:hasExteriorShell":{ "@type":"cj:ExteriorShell", 
-                                "cj:hasSurface":[{
-                                    "@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}}]}]}},
-                                    {"@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}}]}]}},
-                                    {"@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}}]}]}},
-                                    {"@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}}]}]}},
-                                    {"@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":1,"@type":"xsd:float"}}]}]}},
-                                    {"@type":"cj:Surface","cj:hasExteriorBoundary":{"@type":"cj:ExteriorShell",
-                                    "cj:hasLineString":[{
-                                        "@type":"cj:LineString",
-                                        "cj:hasPoint":[{
-                                            "@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":1,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":1,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}},
-                                            {"@type":"cj:Point",
-                                            "cj:boundaryX":{"@value":0,"@type":"xsd:float"},"cj:boundaryY":{"@value":0,"@type":"xsd:float"},"cj:boundaryZ":{"@value":0,"@type":"xsd:float"}}]}]}}
-                    ]}}}]}],
-        "cj:hasTransform":{
-            "@type":"cj:Transform",
-                "cj:hasScale":{
-                    "@type":"cj:Scale",
-                "   cj:scaleX":{"@value":0.001,"@type":"xsd:float"},"cj:scaleY":{"@value":0.001,"@type":"xsd:float"},"cj:scaleZ":{"@value":0.001,"@type":"xsd:float"}},
-                "cj:hasTranslate":{
-                    "@type":"cj:Translate",
-                    "cj:translateX":{"@value":0,"@type":"xsd:float"},"cj:translateY":{"@value":0,"@type":"xsd:float"},"cj:translateZ":{"@value":0,"@type":"xsd:float"}}},
-                    "cj:hasMetadata":{
-                        "@type":"cj:Metadata",
-                        "cj:hasGeographicalExtent":{
-                            "@type":"cj:GeographicalExtent",
-                            "cj:minX":{"@value":0,"@type":"xsd:float"},"cj:maxX":{"@value":1,"@type":"xsd:float"},
-                            "cj:minY":{"@value":0,"@type":"xsd:float"},"cj:maxY":{"@value":1,"@type":"xsd:float"},
-                            "cj:minZ":{"@value":0,"@type":"xsd:float"},"cj:maxZ":{"@value":1,"@type":"xsd:float"}
-                    }}}
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            }
+        ]
+    },
+    "cj:hasCityObjects": [
+        {
+            "@id": "ex:id-1",
+            "@type": "cj:FirstLevelCityObject",
+            "cj:type": "GenericCityObject",
+            "cj:hasAttribute": {
+                "function": "something"
+            },
+            "cj:hasGeometry": [
+                {
+                    "@type": "cj:Geometry",
+                    "cj:type": "Solid",
+                    "cj:lod": "1",
+                    "geosparql:asWKT": {
+                        "@value": "MULTIPOLYGON (((0 0, 1 0, 1 1, 0 1, 0 0)), ((0 1, 1 1, 1 0, 0 0, 0 1)))",
+                        "@type": "geosparql:wktLiteral"
+                    },
+                    "cj:hasBoundingBox": {
+                        "@type": "cj:Solid",
+                        "cj:hasExteriorShell": {
+                            "@type": "cj:ExteriorShell",
+                            "cj:hasSurface": [
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "@type": "cj:Surface",
+                                    "cj:hasExteriorBoundary": {
+                                        "@type": "cj:ExteriorShell",
+                                        "cj:hasLineString": [
+                                            {
+                                                "@type": "cj:LineString",
+                                                "cj:hasPoint": [
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 1.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    },
+                                                    {
+                                                        "@type": "cj:Point",
+                                                        "cj:boundaryX": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryY": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        },
+                                                        "cj:boundaryZ": {
+                                                            "@value": 0.0,
+                                                            "@type": "xsd:float"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "cj:hasTransform": {
+        "@type": "cj:Transform",
+        "cj:hasScale": {
+            "@type": "cj:Scale",
+            "cj:scaleX": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleY": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleZ": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            }
+        },
+        "cj:hasTranslate": {
+            "@type": "cj:Translate",
+            "cj:translateX": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateY": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateZ": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            }
+        }
+    },
+    "cj:hasMetadata": {
+        "@type": "cj:Metadata",
+        "cj:hasGeographicalExtent": {
+            "@type": "cj:GeographicalExtent",
+            "cj:minX": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:maxX": {
+                "@value": 1.0,
+                "@type": "xsd:float"
+            },
+            "cj:minY": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:maxY": {
+                "@value": 1.0,
+                "@type": "xsd:float"
+            },
+            "cj:minZ": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:maxZ": {
+                "@value": 1.0,
+                "@type": "xsd:float"
+            }
+        }
+    }
+}
