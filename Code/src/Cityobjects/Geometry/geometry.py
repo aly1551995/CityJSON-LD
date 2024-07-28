@@ -1,5 +1,4 @@
-from typing import Any, Dict, List, Tuple
-from shapely.geometry import Polygon, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection
+from shapely.geometry import Polygon, MultiPoint, MultiLineString, MultiPolygon
 from Cityobjects.Geometry.multiPoint import MultiPoint as CjMultiPoint
 from Cityobjects.Geometry.multiLineString import MultiLineString as CjMultiLineString
 from Cityobjects.Geometry.multiCompositeSurface import MultiCompositeSurface as CjMultiCompositeSurface
@@ -10,15 +9,24 @@ from Cityobjects.Geometry.multiCompositeSolid import MultiCompositeSolid as CjMu
 class Geometry:
     """
     A class to represent a cityJSON geometric object with various types such as MultiPoint, MultiLineString, MultiSurface,
-      CompositeSurface, Solid, MultiSolid, CompositeSolid.
+    CompositeSurface, Solid, MultiSolid, CompositeSolid.
 
     Attributes:
         type (str): The type of the geometric object.
         lod (str): The level of detail of the geometric object.
-        boundaries (str): The boundaries of the geometric object in CityJSON format.
+        boundaries (List): The boundaries of the geometric object in CityJSON format.
+        boundingBox (CjMultiPoint | CjMultiLineString | CjMultiCompositeSurface | CjSolid | CjMultiCompositeSolid): The bounding box of the the geometric object
+
+    Arguments:
+        type (str): The type of the geometric object.
+        lod (str): The level of detail of the geometric object.
+        boundaries (List): The boundaries of the geometric object.
+        vertices: The vertices of the geometric object.
+        scale: The scale factor for the vertices.
+        translate: The translation vector for the vertices.
     """
 
-    def __init__(self, type: str, lod: str, boundaries: List, vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]):
+    def __init__(self, type: str, lod: str, boundaries, vertices, scale, translate):
         self.type = type
         self.lod = lod
         self.boundaries = self.to_wkt(boundaries, vertices, scale, translate)
@@ -72,7 +80,7 @@ class Geometry:
         multi_line = MultiLineString(lines_as_vertices_2d)
         return multi_line.wkt, lines_as_vertices_3d
 
-    def multi_surface_to_wkt(self, surfaces: List[List[List[int]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[Tuple[float, float, float]]]]]:
+    def multi_surface_to_wkt(self, surfaces, vertices, scale, translate):
         """
         Convert multi-surfaces to WKT format.
 
@@ -110,7 +118,7 @@ class Geometry:
         multi_polygon = MultiPolygon(polygons)
         return multi_polygon.wkt, surfaces_as_vertices_3d
 
-    def solid_to_wkt(self, solid: List[List[List[List[int]]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[Tuple[float, float, float]]]]]:
+    def solid_to_wkt(self, solid, vertices, scale, translate):
         """
         Convert an array of multisurfaces (3D solid) to 2D WKT format by projection.
 
@@ -136,8 +144,8 @@ class Geometry:
             for surface in shell_3d:
                 for boundary in surface:
                     if len(boundary) >= 3:
-                        polygon = Polygon([(pt[0], pt[1]) for pt in boundary]).convex_hull
-                        # polygon = Polygon([(pt[0], pt[1]) for pt in boundary])
+                        # polygon = Polygon([(pt[0], pt[1]) for pt in boundary]).convex_hull
+                        polygon = Polygon([(pt[0], pt[1]) for pt in boundary])
                         # if polygon.is_valid and not polygon.is_empty:
                         if polygon.is_valid and not polygon.is_empty and isinstance(polygon, Polygon):
                             all_polygons.append(polygon)
@@ -146,7 +154,7 @@ class Geometry:
         multipolygon = MultiPolygon(all_polygons)
         return multipolygon.wkt, all_shells_3d
 
-    def multi_solid_to_wkt(self, multi_solid: List[List[List[List[List[int]]]]], vertices: List[Tuple[float, float, float]], scale: List[float], translate: List[float]) -> Tuple[str, List[List[List[List[Tuple[float, float, float]]]]]]:
+    def multi_solid_to_wkt(self, multi_solid, vertices, scale, translate):
         """
         Convert an array of multi-solids to 2D WKT format by projection.
 
@@ -228,7 +236,7 @@ class Geometry:
             self.boundingBox = CjMultiCompositeSolid(multi_composite_solid_3d, self.type)
             return multi_composite_solid_wkt
 
-    def to_json(self) -> Dict[str, Any]:
+    def to_json(self):
         """
         Convert the CityJSON Geometry object to a JSON-LD representation.
 
