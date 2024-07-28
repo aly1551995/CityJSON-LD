@@ -1,0 +1,293 @@
+{
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "cj": "https://www.cityjson.org/ont/cityjson.ttl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "ex": "http://example.com/"
+    },
+    "@id": "http://example.com/eaeceeaa-3f66-429a-b81d-bbc6140b8c1cclea",
+    "@type": "cj:CityJSON",
+    "cj:type": "CityJSON",
+    "cj:version": "2.0",
+    "cj:hasVertices": {
+        "@list": [
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            },
+            {
+                "@type": "cj:Vertex",
+                "cj:vertexX": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexY": {
+                    "@value": 1000,
+                    "@type": "xsd:integer"
+                },
+                "cj:vertexZ": {
+                    "@value": 0,
+                    "@type": "xsd:integer"
+                }
+            }
+        ]
+    },
+    "cj:hasCityObjects": [
+        {
+            "@id": "ex:onebigtree",
+            "@type": "cj:FirstLevelCityObject",
+            "cj:type": "SolitaryVegetationObject",
+            "cj:hasAttribute": {
+                "trunkDiameter": 5.3,
+                "crownDiameter": 11.0
+            },
+            "cj:hasGeometry": [
+                {
+                    "@type": "cj:Geometry",
+                    "cj:type": "MultiPoint",
+                    "cj:lod": "1",
+                    "geosparql:asWKT": {
+                        "@value": "MULTIPOINT (1 0, 1 1, 0 1)",
+                        "@type": "geosparql:wktLiteral"
+                    },
+                    "cj:hasBoundingBox": {
+                        "@type": "cj:MultiPoint",
+                        "cj:hasPoint": [
+                            {
+                                "@type": "cj:Point",
+                                "cj:boundaryX": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryY": {
+                                    "@value": 0.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryZ": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                }
+                            },
+                            {
+                                "@type": "cj:Point",
+                                "cj:boundaryX": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryY": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryZ": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                }
+                            },
+                            {
+                                "@type": "cj:Point",
+                                "cj:boundaryX": {
+                                    "@value": 0.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryY": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                },
+                                "cj:boundaryZ": {
+                                    "@value": 1.0,
+                                    "@type": "xsd:float"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "cj:hasTransform": {
+        "@type": "cj:Transform",
+        "cj:hasScale": {
+            "@type": "cj:Scale",
+            "cj:scaleX": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleY": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            },
+            "cj:scaleZ": {
+                "@value": 0.001,
+                "@type": "xsd:float"
+            }
+        },
+        "cj:hasTranslate": {
+            "@type": "cj:Translate",
+            "cj:translateX": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateY": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            },
+            "cj:translateZ": {
+                "@value": 0.0,
+                "@type": "xsd:float"
+            }
+        }
+    },
+    "cj:hasMetadata": {
+        "@type": "cj:Metadata",
+        "cj:hasGeographicalExtent": {
+            "@type": "cj:GeographicalExtent",
+            "cj:minX": {
+                "@value": 84710.1,
+                "@type": "xsd:float"
+            },
+            "cj:maxX": {
+                "@value": 84757.1,
+                "@type": "xsd:float"
+            },
+            "cj:minY": {
+                "@value": 446846.0,
+                "@type": "xsd:float"
+            },
+            "cj:maxY": {
+                "@value": 446944.0,
+                "@type": "xsd:float"
+            },
+            "cj:minZ": {
+                "@value": -5.3,
+                "@type": "xsd:float"
+            },
+            "cj:maxZ": {
+                "@value": 40.9,
+                "@type": "xsd:float"
+            }
+        },
+        "cj:identifier": "eaeceeaa-3f66-429a-b81d-bbc6140b8c1c",
+        "cj:hasPointOfContact": {
+            "@type": "cj:PointOfContact",
+            "cj:contactName": "3D geoinformation group, Delft University of Technology",
+            "cj:emailAddress": "3dgeoinfo-bk@tudelft.nl",
+            "cj:role": "owner",
+            "cj:website": "https://3d.bk.tudelft.nl",
+            "cj:contactType": "organization",
+            "cj:phone": "+31-6666666666",
+            "cj:hasAddress": {
+                "thoroughfareNumber": "134",
+                "thoroughfareName": "Julianalaan",
+                "locality": "Delft",
+                "postcode": "2628BL",
+                "country": "the Netherlands"
+            }
+        },
+        "cj:referenceDate": "1977-02-28",
+        "cj:referenceSystem": "https://www.opengis.net/def/crs/EPSG/0/2355",
+        "cj:title": "Buildings in LoD2.3 of Chibougamau, QuÃ©bec"
+    }
+}
