@@ -1,3 +1,6 @@
 __pycache__/
-output
-data
+helsinki.city.json
+updated*.json
+vienna.city.json
+helsinki.city.jsonld
+updated*.jsonld
