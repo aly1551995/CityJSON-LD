@@ -28,4 +28,25 @@ JSON-LD/Turtle representations of CityJSON data are provided to demonstrate the 
 
 ## Code
 
-TODO
+This section contains the implementation code used in the conversion of CityJSON data to JSON-LD. You can explore the code in the [Code folder](Code/src) of this repository.
+
+## Demo
+
+A demo is provided to showcase how to use the CityJSON to JSON-LD and the conversion process. The demo can be found in the [Demo Folder](Demo/) of this repository.
+
+## Case Studies
+
+Two case studies were conducted to demonstrate the practical application of the CityJSON to JSON-LD conversion process:
+
+1. **Helsinki**:
+   - **[Helsinki Case Study Code](Case%20Study/Helsinki)**
+   - **[Helsinki Data](Code/src/data/helsinki.city.json)**
+   
+2. **New York**: 
+
+   - **[New York Case Study Code](Case%20Study/NYC)**
+   - **[New York Data](https://3d.bk.tudelft.nl/opendata/cityjson/3dcities/v2.0/DA13_3D_Buildings_Merged.city.json)**
+
+
+
+
