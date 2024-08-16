@@ -1,0 +1,7 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+
+SELECT (COUNT(?city) AS ?numCityObjects)
+WHERE {
+    ?city cj:hasCityObjects ?cityObjects .
+
+}

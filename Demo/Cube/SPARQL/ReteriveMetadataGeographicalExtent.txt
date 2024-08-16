@@ -1,0 +1,13 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+
+SELECT ?minX ?maxX ?minY ?maxY ?minZ ?maxZ
+WHERE {
+    ?city cj:hasMetadata ?metadata .
+    ?metadata cj:hasGeographicalExtent ?geographicalExtent .
+    ?geographicalExtent cj:minX ?minX ;
+                        cj:maxX ?maxX ;
+                        cj:minY ?minY ;
+                        cj:maxY ?maxY ;
+                        cj:minZ ?minZ ;
+                        cj:maxZ ?maxZ .
+}

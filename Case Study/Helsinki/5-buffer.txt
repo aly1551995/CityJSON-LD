@@ -1,0 +1,20 @@
+PREFIX uom: <http://www.opengis.net/def/uom/OGC/1.0/>  
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#> 
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>  
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>  
+
+# Concatenates the original geometry and its buffered version into a GEOMETRYCOLLECTION WKT string
+SELECT (CONCAT("GEOMETRYCOLLECTION(", STR(?geometryWKT), ",", STR(?bufferedGeometry), ")") AS ?geometryCollectionWKT)
+WHERE {
+  # Retrieve the geometry of a specific building identified by its URI
+  <http://example.com/BID_9c1fc3d5-c69c-4de1-b61a-ce84432f72f0> cj:hasGeometry ?targetGeometry .
+  
+  # Filter the geometry to ensure it's at Level of Detail 2 (LOD2)
+  ?targetGeometry cj:lod "1" .
+  
+  # Extract the Well-Known Text (WKT) representation of the geometry
+  ?targetGeometry geosparql:asWKT ?geometryWKT .
+  
+  # Apply a buffer of 5000 units (5 kilometers) around the original geometry
+  BIND(geof:buffer(?geometryWKT, 5000, uom:degree) AS ?bufferedGeometry)
+}

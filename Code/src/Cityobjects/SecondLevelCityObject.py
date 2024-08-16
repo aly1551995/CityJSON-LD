@@ -48,7 +48,8 @@ class SecondLevelCityObject:
             geographical_extent)
         self.attributes = json.dumps(attributes) if attributes else None
         self.children = children
-        self.geometry = [geom.to_json() for geom in geometry] if geometry else None
+        self.geometry = [geom.to_json()
+                         for geom in geometry] if geometry else None
 
     def to_json(self) -> Dict[str, Any]:
         """
@@ -72,7 +73,10 @@ class SecondLevelCityObject:
                 "@id": f'{self.alias}:{self.parent}'
             },
             "cj:hasGeographicalExtent": geographical_extent_dict,
-            "cj:hasAttribute": attributes_dict,
+            "cj:hasAttribute": {
+                "@type": "@json",
+                "@value": attributes_dict
+            },
             "cj:hasGeometry": geometry
         }
 

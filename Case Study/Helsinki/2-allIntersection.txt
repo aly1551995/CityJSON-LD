@@ -1,0 +1,26 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT ?building1 ?building2 ?intersectionWKT # To view each building and their intersection WKT seperately
+#SELECT (CONCAT("GEOMETRYCOLLECTION(", GROUP_CONCAT(?intersectionWKT; separator=","), ")") AS ?geometryCollectionWKT)  # To view all intersection points in one WKT
+#SELECT (CONCAT("GEOMETRYCOLLECTION(", GROUP_CONCAT(geof:union(?geometryWKT1, ?geometryWKT2); separator=","), ")") AS ?geometryCollectionWKT) # To view all intersecting buildings in one WKT
+WHERE {
+  # Retrieve the geometries of two different buildings
+  ?building1 cj:hasGeometry ?geometry1 .
+  ?geometry1 cj:lod "1" .
+  ?geometry1 geosparql:asWKT ?geometryWKT1 .
+
+  ?building2 cj:hasGeometry ?geometry2 .
+  ?geometry2 cj:lod "1" .
+  ?geometry2 geosparql:asWKT ?geometryWKT2 .
+
+  # Only consider pairs of buildings that intersect
+  FILTER(geof:sfIntersects(?geometryWKT1, ?geometryWKT2))
+  
+  # Ensure that the two buildings are different
+  FILTER(?building1 != ?building2)
+
+  # Calculate the intersection and bind it to a variable
+  BIND(geof:intersection(?geometryWKT1, ?geometryWKT2) AS ?intersectionWKT)
+}

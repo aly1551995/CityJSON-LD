@@ -1,0 +1,11 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT (CONCAT("GEOMETRYCOLLECTION(", GROUP_CONCAT(?geometryWKT; separator=","), ")") AS ?geometryCollectionWKT)
+WHERE {
+  # Retrieve the geometries of all buildings
+  ?building cj:hasGeometry ?geometry .
+  ?geometry cj:lod "1" .
+  ?geometry geosparql:asWKT ?geometryWKT .
+}

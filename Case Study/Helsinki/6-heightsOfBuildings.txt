@@ -1,0 +1,20 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+#SELECT ?cityObject (?measuredHeight as ?avgmeasuredHeight) # To get all the Buildings heights seperately
+SELECT (AVG(xsd:decimal(?measuredHeight)) as ?avgHeight) # To get the AVG height of buildings
+WHERE {
+    ?cityObject cj:hasAttribute ?jsonData .
+    FILTER(datatype(?jsonData) = rdf:JSON)
+
+    # Convert JSON data to a string
+    BIND(STR(?jsonData) AS ?jsonString)
+    
+    # Find the substring starting from "measuredHeight"
+    BIND(STRAFTER(?jsonString, '"measuredHeight":') AS ?aftermeasuredHeightSTR)
+    
+    # Extract the value before the next comma or closing brace
+    BIND(STRBEFORE(?aftermeasuredHeightSTR, ',') AS ?measuredHeight)
+    
+}

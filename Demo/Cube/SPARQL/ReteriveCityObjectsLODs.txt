@@ -1,0 +1,8 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+
+SELECT ?cityObjects ?lod
+WHERE {
+    ?city cj:hasCityObjects ?cityObjects .
+    ?cityObjects cj:hasGeometry ?geometry .
+    ?geometry cj:lod ?lod .
+}

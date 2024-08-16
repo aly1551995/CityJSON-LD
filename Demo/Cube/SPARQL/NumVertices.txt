@@ -1,0 +1,8 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+
+SELECT (COUNT(?vertex) AS ?numVertices)
+WHERE {
+    ?city cj:hasVertices ?vertices .
+    ?vertices rdf:rest*/rdf:first ?vertex .
+}

@@ -1,0 +1,9 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT ?cityObject (geof:boundary(?geometryWKT) AS ?boundary)
+WHERE {
+  ?cityObject cj:hasGeometry ?geometry .
+  ?geometry geosparql:asWKT ?geometryWKT .
+}

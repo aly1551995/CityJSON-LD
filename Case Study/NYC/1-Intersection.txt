@@ -1,0 +1,25 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT (<http://example.com/gml_U2BJU6PIFWA2EWA3HNM4OMZXERDKCAOUYJNG> AS ?target) ?building ?intersectionWKT
+WHERE {
+  # Retrieve the geometry of the specific target building
+  <http://example.com/gml_U2BJU6PIFWA2EWA3HNM4OMZXERDKCAOUYJNG> cj:hasGeometry ?targetGeometry .
+  ?targetGeometry cj:lod "2" .
+  ?targetGeometry geosparql:asWKT ?targetGeometryWKT .
+
+  # Find other buildings and their geometries
+  ?building cj:hasGeometry ?geometry .
+  ?geometry cj:lod "2" .
+  ?geometry geosparql:asWKT ?geometryWKT .
+
+  # Only consider buildings that intersect with the target building
+  FILTER(geof:sfIntersects(?geometryWKT, ?targetGeometryWKT))
+  
+  # Exclude the target building itself
+  FILTER(?geometry != ?targetGeometry)
+
+  # Calculate the intersection of the boundaries and bind it to a variable
+  BIND(geof:intersection(geof:boundary(?geometryWKT), geof:boundary(?targetGeometryWKT)) AS ?intersectionWKT)
+}

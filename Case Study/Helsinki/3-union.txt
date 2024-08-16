@@ -1,0 +1,21 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
+
+SELECT (geof:union(geof:union(?geometryWKT1, ?geometryWKT2), ?geometryWKT3) AS ?unionGeometryWKT)
+WHERE {
+  # Retrieve the geometry of BID_9c1fc3d5-c69c-4de1-b61a-ce84432f72f0
+  <http://example.com/BID_9c1fc3d5-c69c-4de1-b61a-ce84432f72f0> cj:hasGeometry ?geometry1 .
+  ?geometry1 cj:lod "1" .
+  ?geometry1 geosparql:asWKT ?geometryWKT1 .
+
+ # Retrieve the geometry of BID_837d9e56-a9ca-4c63-b62f-ac19e86cb325
+  <http://example.com/BID_837d9e56-a9ca-4c63-b62f-ac19e86cb325> cj:hasGeometry ?geometry2 .
+  ?geometry2 cj:lod "1" .
+  ?geometry2 geosparql:asWKT ?geometryWKT2 .
+
+  # Retrieve the geometry of BID_2d0b79f5-6354-49e7-9174-8c24b53bf37d
+  <http://example.com/BID_2d0b79f5-6354-49e7-9174-8c24b53bf37d> cj:hasGeometry ?geometry3 .
+  ?geometry3 cj:lod "1" .
+  ?geometry3 geosparql:asWKT ?geometryWKT3 .
+}

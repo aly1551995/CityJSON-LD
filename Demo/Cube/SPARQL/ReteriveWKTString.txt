@@ -1,0 +1,10 @@
+PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+
+SELECT ?cityObjects ?lod ?wkt
+WHERE {
+    ?city cj:hasCityObjects ?cityObjects .
+    ?cityObjects cj:hasGeometry ?geometry .
+    ?geometry cj:lod ?lod .
+    ?geometry geosparql:asWKT ?wkt .
+}

@@ -141,7 +141,10 @@
             "@type": "cj:FirstLevelCityObject",
             "cj:type": "GenericCityObject",
             "cj:hasAttribute": {
-                "function": "something"
+                "@type": "@json",
+                "@value": {
+                    "function": "something"
+                }
             },
             "cj:hasGeometry": [
                 {
