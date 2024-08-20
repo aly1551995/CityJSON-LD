@@ -3,18 +3,28 @@ PREFIX cj: <https://www.cityjson.org/ont/cityjson.ttl#>
 PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>  
 PREFIX geof: <http://www.opengis.net/def/function/geosparql/>  
 
-# Concatenates the original geometry and its buffered version into a GEOMETRYCOLLECTION WKT string
-SELECT (CONCAT("GEOMETRYCOLLECTION(", STR(?geometryWKT), ",", STR(?bufferedGeometry), ")") AS ?geometryCollectionWKT)
+# Concatenates the original geometry, its buffered version, and other buildings' geometries into a GEOMETRYCOLLECTION WKT string
+SELECT (CONCAT("GEOMETRYCOLLECTION(", STR(?geometryWKT), ",", GROUP_CONCAT(STR(?otherGeometryWKT); separator=","), ",", STR(?bufferedGeometry), ")") AS ?geometryCollectionWKT)
 WHERE {
   # Retrieve the geometry of a specific building identified by its URI
   <http://example.com/BID_9c1fc3d5-c69c-4de1-b61a-ce84432f72f0> cj:hasGeometry ?targetGeometry .
   
-  # Filter the geometry to ensure it's at Level of Detail 2 (LOD2)
+  # Filter the geometry to ensure it's at Level of Detail 1 (LOD1)
   ?targetGeometry cj:lod "1" .
   
   # Extract the Well-Known Text (WKT) representation of the geometry
   ?targetGeometry geosparql:asWKT ?geometryWKT .
   
-  # Apply a buffer of 5000 units (5 kilometers) around the original geometry
-  BIND(geof:buffer(?geometryWKT, 5000, uom:degree) AS ?bufferedGeometry)
+  # Apply a buffer of 1000 units (1 kilometers) around the original geometry
+  BIND(geof:buffer(?geometryWKT, 1000, uom:degree) AS ?bufferedGeometry)
+  
+  # Find other buildings within the buffered area
+  ?otherBuilding cj:hasGeometry ?otherGeometry .
+  ?otherGeometry geosparql:asWKT ?otherGeometryWKT .
+  ?otherGeometry cj:lod "1" .
+  
+  # Filter buildings that intersect with the buffered area
+  FILTER(geof:sfWithin(?otherGeometryWKT, ?bufferedGeometry))
+  
 }
+GROUP BY ?geometryWKT ?bufferedGeometry
